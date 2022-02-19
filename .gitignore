@@ -1,0 +1,7 @@
+.nextflow.log*
+
+
+/.nextflow
+/output
+/input
+/work
