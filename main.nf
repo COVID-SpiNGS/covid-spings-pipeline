@@ -1,6 +1,8 @@
 #! /usr/bin/env nextflow
 nextflow.enable.dsl = 2 
 
+import java.nio.file.Paths;
+
 def helpMessage() {
   log.info """
     Usage:
@@ -11,43 +13,39 @@ def helpMessage() {
 
     Optional arguments:
       --watchPath
-      --referenceGenomePath
+      --reference
+      --referenceIndex
+
       --publishDir
-      --mergeBamFileName
+      --bamFile
+      --bamIndexFile
+      --vcfFile
+      --vcfReportFile
       --help                         This usage statement.
     """
 }
 
-// Show help message
-if (params.help) {
-  helpMessage()
-  exit 0
-}
-
-
 process runGraphMap {
   container 'https://depot.galaxyproject.org/singularity/graphmap%3A0.6.3--h9a82719_1'
-  // publishDir params.samFilesPublishDir, mode: 'copy', saveAs: { filename -> "${LocalDateTime.now()}.sam" }
 
   input:
-    file('input.fastq')
-    file('referenceGenome.fasta')
+    path('input.fastq')
+    path('reference.fasta')
 
   output: 
     file('output.sam')
 
   script:
     """
-      graphmap2 align -r referenceGenome.fasta -d input.fastq -o output.sam
+      graphmap2 align -r reference.fasta -d input.fastq -o output.sam
     """
 }
 
-process convertSamToBam {
+process runSamtoolsView {
   container 'https://depot.galaxyproject.org/singularity/samtools%3A1.14--hb421002_0'
-  publishDir params.publishDir, mode: 'copy', saveAs: { filename -> "${UUID.randomUUID().toString()}.part.bam" }
 
   input:
-    file('input.sam')
+    path('input.sam')
     
   output:
     file('output.bam')
@@ -58,29 +56,87 @@ process convertSamToBam {
     """
 }
 
-process mergeBam {
+
+process runSamtoolsMergeIndex {
+  maxForks 1
   container 'https://depot.galaxyproject.org/singularity/samtools%3A1.14--hb421002_0'
-  publishDir params.publishDir, mode: 'copy', saveAs: { filename -> params.mergeBamFileName }
+  publishDir params.publishDir, mode: 'copy', saveAs: { it == 'output.bam' ? params.bamFile : params.bamIndexFile }
 
   input:
-    file('input.bam')
+    tuple path('input.bam'), path('merge.bam'), val(append)
     
   output:
     file('output.bam')
+    file('output.bam.bai')
+
+  script: 
+    if(append)
+      """
+          samtools merge output.bam merge.bam input.bam
+          samtools index output.bam
+      """
+    else
+      """
+          mv input.bam output.bam
+          samtools index output.bam
+      """
+}
+
+
+process runDeepVariant {
+  maxForks 1
+  container 'docker://kishwars/pepper_deepvariant:r0.7'
+  publishDir params.publishDir, mode: 'copy', saveAs: {  it == 'output.vcf' ? params.vcfFile : params.vcfReportFile }
+
+  input:
+    path('input.bam')
+    path('input.bam.bai')
+    path('reference.fasta')
+    path('reference.fasta.fai')
+
+
+  output:
+    file('output.vcf')
+    file('output.visual_report.html')
 
   script: 
     """
-      samtools merge output.bam "${params.publishDir}"/*.part.bam
+      run_deepvariant --model_type=WGS --reads=input.bam --ref reference.fasta --output_vcf=output.vcf
     """
 }
 
 
-workflow {
-  inputFiles$ = Channel.watchPath(params.watchPath, 'create')
-  // inputFiles$ = Channel.fromPath(params.watchPath)
-  referenceGenomeFile$ = Channel.value(params.referenceGenomePath)
 
-  runGraphMap(inputFiles$, referenceGenomeFile$)
-  convertSamToBam(runGraphMap.out)
-  mergeBam(convertSamToBam.out)
+workflow {
+  Boolean firstRead = true
+
+  chInputFiles = Channel.watchPath(params.watchPath, 'create').until { it.name == 'exit.fastq' }
+  //chInputFiles = Channel.fromPath(params.watchPath)
+  chReference = Channel.value(params.reference)
+  chReferenceIndex = Channel.value(params.referenceIndex)
+
+
+  runGraphMap(chInputFiles, chReference)
+  runSamtoolsView(runGraphMap.out)
+
+  chRunSamtoolsMergeInput = runSamtoolsView.out
+    .map { [it, Paths.get("${params.publishDir}/${params.bamFile}")] }
+    .map { [it[0], it[1], !firstRead] }
+    .map { 
+      firstRead = false
+      it
+    }
+
+
+  runSamtoolsMergeIndex(chRunSamtoolsMergeInput)
+
+  runDeepVariant(
+    runSamtoolsMergeIndex.out[0],
+    runSamtoolsMergeIndex.out[1],
+    chReference,
+    chReferenceIndex
+  )
+  
+  runDeepVariant.out[0].view()
+  runDeepVariant.out[1].view()
 }
