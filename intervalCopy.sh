@@ -1,0 +1,1 @@
+find ./.splitted/ -type f -exec cp {} ./input \; -exec sleep 60  \;

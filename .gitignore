@@ -2,6 +2,7 @@
 
 
 /.nextflow
+/.splitted
 /output
 /input
 /work
