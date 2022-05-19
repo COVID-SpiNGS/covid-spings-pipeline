@@ -1,6 +1,5 @@
 
 process pepperMarginDeepVariant {
-  echo false
   maxForks 1
   container 'docker://kishwars/pepper_deepvariant:r0.8'
   publishDir params.publishDir, mode: 'copy'
