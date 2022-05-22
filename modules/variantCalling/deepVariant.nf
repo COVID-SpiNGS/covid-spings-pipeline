@@ -17,6 +17,6 @@ process deepVariant {
 
   script: 
     """
-      run_deepvariant --model_type=WGS --reads=input.bam --ref reference.fasta --output_vcf=output.vcf
+      run_deepvariant -t ${params.threads} --model_type=WGS --reads=input.bam --ref reference.fasta --output_vcf=output.vcf
     """
 }

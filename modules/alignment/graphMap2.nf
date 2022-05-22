@@ -1,4 +1,5 @@
 process graphMap2 {
+  maxForks params.threads
   container 'https://depot.galaxyproject.org/singularity/graphmap%3A0.6.3--h9a82719_1'
 
   input:
@@ -10,7 +11,7 @@ process graphMap2 {
 
   script:
     """
-      graphmap2 align -x rnaseq -r reference.fasta -d input.fastq -o output.sam
+      graphmap2 align -t 1 -x rnaseq -r reference.fasta -d input.fastq -o output.sam
     """
 }
 

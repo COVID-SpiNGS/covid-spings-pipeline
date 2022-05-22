@@ -1,4 +1,5 @@
 process samtoolsView {
+  maxForks params.threads
   container 'docker://staphb/samtools:1.14'
 
   input:
@@ -9,7 +10,7 @@ process samtoolsView {
 
   script:
     """
-      samtools view -@ 8 -S -b input.sam > output.bam
+      samtools view -@ 1 -S -b input.sam > output.bam
     """
 }
 
@@ -28,14 +29,14 @@ process samtoolsMergeSortIndex {
   script: 
     if(append)
       """
-          samtools merge -@ 8 unsorted.bam merge.bam input.bam
-          samtools sort  -@ 8 unsorted.bam -o output.bam
-          samtools index -@ 8 output.bam
+          samtools merge -@ ${params.threads} unsorted.bam merge.bam input.bam
+          samtools sort  -@ ${params.threads} unsorted.bam -o output.bam
+          samtools index -@ ${params.threads} output.bam
       """
     else
       """
           mv input.bam unsorted.bam
-          samtools sort  -@ 8 unsorted.bam -o output.bam
-          samtools index -@ 8 output.bam
+          samtools sort  -@ ${params.threads} unsorted.bam -o output.bam
+          samtools index -@ ${params.threads} output.bam
       """
 }

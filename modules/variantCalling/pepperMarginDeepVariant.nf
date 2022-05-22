@@ -16,6 +16,6 @@ process pepperMarginDeepVariant {
 
   script: 
     """
-      run_pepper_margin_deepvariant call_variant -t 8 --ont_r9_guppy5_su -b input.bam -f reference.fasta -o ./pepper
+      run_pepper_margin_deepvariant call_variant -t ${params.threads} --ont_r9_guppy5_su -b input.bam -f reference.fasta -o ./pepper
     """
 }
