@@ -32,8 +32,8 @@ def helpMessage() {
 workflow {
   Boolean firstRead = true
 
-  // chInputFiles = Channel.watchPath(params.watchPath, 'create').until { it.name == 'exit.fastq' }
-  chInputFiles = Channel.fromPath(params.watchPath)
+  chInputFiles = Channel.watchPath(params.watchPath, 'create').until { it.name == 'exit.fastq' }
+  // chInputFiles = Channel.fromPath(params.watchPath)
   chReference = Channel.value(params.reference)
   chReferenceIndex = Channel.value(params.referenceIndex)
 
