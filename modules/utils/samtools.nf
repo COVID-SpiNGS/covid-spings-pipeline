@@ -9,7 +9,7 @@ process samtoolsView {
 
   script:
     """
-      samtools view -S -b input.sam > output.bam
+      samtools view -@ 8 -S -b input.sam > output.bam
     """
 }
 
@@ -28,14 +28,14 @@ process samtoolsMergeSortIndex {
   script: 
     if(append)
       """
-          samtools merge unsorted.bam merge.bam input.bam
-          samtools sort unsorted.bam -o output.bam
-          samtools index output.bam
+          samtools merge -@ 8 unsorted.bam merge.bam input.bam
+          samtools sort  -@ 8 unsorted.bam -o output.bam
+          samtools index -@ 8 output.bam
       """
     else
       """
           mv input.bam unsorted.bam
-          samtools sort unsorted.bam -o output.bam
-          samtools index output.bam
+          samtools sort  -@ 8 unsorted.bam -o output.bam
+          samtools index -@ 8 output.bam
       """
 }
