@@ -1,5 +1,5 @@
 process samtoolsView {
-  maxForks params.threads
+  maxForks 1
   container 'docker://staphb/samtools:1.14'
 
   input:
@@ -10,7 +10,7 @@ process samtoolsView {
 
   script:
     """
-      samtools view -@ 1 -S -b input.sam > output.bam
+      samtools view -@ ${params.threads} -S -b input.sam > output.bam
     """
 }
 

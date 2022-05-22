@@ -52,6 +52,8 @@ workflow {
   samtoolsMergeSortIndex(chSamtoolsMergeSortIndexInput)
 
   pepperMarginDeepVariant(
+    // samtoolsMergeSortIndex.out[0].reduce { a, b -> b },
+    // samtoolsMergeSortIndex.out[1].reduce { a, b -> b },
     samtoolsMergeSortIndex.out[0],
     samtoolsMergeSortIndex.out[1],
     chReference,

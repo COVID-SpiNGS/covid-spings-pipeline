@@ -1,5 +1,5 @@
 process miniMap2 {
-  maxForks params.threads
+  maxForks 1
   container 'docker://staphb/minimap2:2.24'
 
   input:
@@ -11,6 +11,6 @@ process miniMap2 {
 
   script:
     """
-      minimap2 -t 1 -ax map-ont reference.fasta input.fastq > output.sam
+      minimap2 -t ${params.threads} -ax map-ont reference.fasta input.fastq > output.sam
     """
 }
