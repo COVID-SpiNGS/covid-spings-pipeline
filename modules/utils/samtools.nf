@@ -1,6 +1,6 @@
 process samtoolsView {
   maxForks 1
-  container 'docker://staphb/samtools:1.14'
+  container params.singularity ? 'docker://staphb/samtools:1.15' : 'staphb/samtools:1.15'
 
   input:
     path('input.sam')
@@ -16,7 +16,7 @@ process samtoolsView {
 
 process samtoolsMergeSortIndex {
   maxForks 1
-  container 'docker://staphb/samtools:1.14'
+  container params.singularity ? 'docker://staphb/samtools:1.15' : 'staphb/samtools:1.15'
   publishDir params.publishDir, mode: 'copy', saveAs: { it == 'output.bam' ? params.bamFile : params.bamIndexFile }
 
   input:

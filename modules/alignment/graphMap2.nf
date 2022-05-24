@@ -1,6 +1,7 @@
 process graphMap2 {
   maxForks 1
-  container 'https://depot.galaxyproject.org/singularity/graphmap%3A0.6.3--h9a82719_1'
+  // container 'https://depot.galaxyproject.org/singularity/graphmap%3A0.6.3--h9a82719_1'
+  container params.singularity ? 'docker://tintest/graphmap2:v1.0.0' : 'tintest/graphmap2:v1.0.0'
 
   input:
     path('input.fastq')

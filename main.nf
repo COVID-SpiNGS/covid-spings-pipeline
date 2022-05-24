@@ -33,7 +33,7 @@ workflow {
   Boolean firstRead = true
 
   chInputFiles = Channel.watchPath(params.watchPath, 'create').until { it.name == 'exit.fastq' }
-  // chInputFiles = Channel.fromPath(params.watchPath)
+  chInputFiles = Channel.fromPath(params.watchPath)
   chReference = Channel.value(params.reference)
   chReferenceIndex = Channel.value(params.referenceIndex)
 
@@ -52,10 +52,10 @@ workflow {
   samtoolsMergeSortIndex(chSamtoolsMergeSortIndexInput)
 
   pepperMarginDeepVariant(
-    // samtoolsMergeSortIndex.out[0].reduce { a, b -> b },
-    // samtoolsMergeSortIndex.out[1].reduce { a, b -> b },
-    samtoolsMergeSortIndex.out[0],
-    samtoolsMergeSortIndex.out[1],
+    samtoolsMergeSortIndex.out[0].reduce { a, b -> b },
+    samtoolsMergeSortIndex.out[1].reduce { a, b -> b },
+    // samtoolsMergeSortIndex.out[0],
+    // samtoolsMergeSortIndex.out[1],
     chReference,
     chReferenceIndex
   )

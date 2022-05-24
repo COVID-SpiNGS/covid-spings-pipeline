@@ -1,7 +1,7 @@
 
 process deepVariant {
   maxForks 1
-  container 'docker://google/deepvariant:1.3.0'
+  container params.singularity ? 'docker://google/deepvariant:1.3.0' : 'google/deepvariant:1.3.0'
   publishDir params.publishDir, mode: 'copy', saveAs: {  it == 'output.vcf' ? params.vcfFile : params.vcfReportFile }
 
   input:

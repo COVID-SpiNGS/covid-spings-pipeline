@@ -2,7 +2,7 @@
 process pepperMarginDeepVariant {
   maxForks 1
   accelerator params.gpus 
-  container 'docker://kishwars/pepper_deepvariant:r0.8' + (params.gpus > 0 ? '-gpu': '')
+  container params.singularity ? 'docker://kishwars/pepper_deepvariant:r0.8' + (params.gpus > 0 ? '-gpu': '') : 'kishwars/pepper_deepvariant:r0.8' + (params.gpus > 0 ? '-gpu': '')
   publishDir params.publishDir, mode: 'copy'
 
   input:
