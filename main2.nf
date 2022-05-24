@@ -3,10 +3,10 @@ nextflow.enable.dsl = 2
 
 
 include { miniMap2 } from './modules/alignment/miniMap2';
-include { samtoolsView; samtoolsMerge } from './modules/utils/samtools';
-include { pepperMarginDeepVariant } from './modules/variantCalling/pepperMarginDeepVariant';
+include { samtoolsView; samtoolsSort; samtoolsIndex } from './modules/utils/samtools';
+include { bcftoolsView; bcftoolsConcat; bcftoolsMerge } from './modules/utils/bcftools';
+include { pepperMarginDeepVariantNoPublish } from './modules/variantCalling/pepperMarginDeepVariant';
 
-import java.nio.file.Paths;
 
 def helpMessage() {
   log.info """
@@ -28,35 +28,28 @@ def helpMessage() {
     """
 }
 
+bcfList = file("${params.publishDir}/${params.bcfList}")
+bcfList.text = ''
 
 workflow {
-  Boolean firstRead = true
-
   // chInputFiles = Channel.watchPath(params.watchPath, 'create').until { it.name == 'exit.fastq' }
   chInputFiles = Channel.fromPath(params.watchPath)
   chReference = Channel.value(params.reference)
   chReferenceIndex = Channel.value(params.referenceIndex)
-
+  chBcfList = Channel.watchPath("${params.publishDir}/${params.bcfList}")
 
   miniMap2(chInputFiles, chReference)
   samtoolsView(miniMap2.out)
+  samtoolsSort(samtoolsView.out)
+  samtoolsIndex(samtoolsSort.out)
 
-  chSamtoolsMergeInput = samtoolsView.out
-    .map { [it, Paths.get("${params.publishDir}/${params.bamFile}")] }
-    .map { [it[0], it[1], !firstRead] }
-    .map { 
-      firstRead = false
-      it
-    }
-
-  samtoolsMerge(chSamtoolsMergeInput)
-
-  pepperMarginDeepVariant(
-    // samtoolsMerge.out[0].reduce { a, b -> b },
-    // samtoolsMerge.out[1].reduce { a, b -> b },
-    samtoolsMerge.out[0],
-    samtoolsMerge.out[1],
+  pepperMarginDeepVariantNoPublish(
+    samtoolsSort.out,
+    samtoolsIndex.out,
     chReference,
     chReferenceIndex
   )
+
+  bcftoolsView(pepperMarginDeepVariantNoPublish.out[0])
+  bcftoolsView.out.subscribe { bcfList.append("${it}\n") }
 }

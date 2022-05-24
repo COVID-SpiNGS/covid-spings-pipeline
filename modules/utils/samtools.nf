@@ -1,5 +1,5 @@
-process samtoolsSamToBam {
-  maxForks 1
+process samtoolsView {
+  maxForks params.threads
   container params.singularity ? 'docker://staphb/samtools:1.15' : 'staphb/samtools:1.15'
 
   input:
@@ -10,7 +10,7 @@ process samtoolsSamToBam {
 
   script:
     """
-      samtools view -@ ${params.threads} -S -b input.sam > output.bam
+      samtools view -S -b input.sam > output.bam
     """
 }
 
@@ -77,4 +77,36 @@ process samtoolsMerge {
         samtools sort  -@ ${params.threads} -o output.bam orig.bam
         samtools index -@ ${params.threads}    output.bam
       """
+}
+
+process samtoolsSort {
+  maxForks params.threads
+  container params.singularity ? 'docker://staphb/samtools:1.15' : 'staphb/samtools:1.15'
+
+  input:
+    path('input.bam')
+    
+  output:
+    file('output.bam')
+
+  script:
+    """
+      samtools sort input.bam -o output.bam 
+    """
+}
+
+process samtoolsIndex {
+  maxForks params.threads
+  container params.singularity ? 'docker://staphb/samtools:1.15' : 'staphb/samtools:1.15'
+
+  input:
+    path('input.bam')
+    
+  output:
+    file('output.bam.bai')
+
+  script:
+    """
+      samtools index input.bam output.bam.bai
+    """
 }
