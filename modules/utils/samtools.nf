@@ -65,16 +65,16 @@ process samtoolsMerge {
   script:
     if(append)
       """
-        samtools merge   -@ ${params.threads}    orig.bam merge.bam input.bam
+        samtools merge -@ ${params.threads}    orig.bam merge.bam input.bam
 
-        samtools sort    -@ ${params.threads} -o output.bam orig.bam
-        samtools index   -@ ${params.threads}    output.bam
+        samtools sort  -@ ${params.threads} -o output.bam orig.bam
+        samtools index -@ ${params.threads}    output.bam
       """
     else
       """
-        mv                                       input.bam orig.bam
+        mv                                     input.bam orig.bam
 
-        samtools sort    -@ ${params.threads} -o output.bam orig.bam
-        samtools index   -@ ${params.threads}    output.bam
+        samtools sort  -@ ${params.threads} -o output.bam orig.bam
+        samtools index -@ ${params.threads}    output.bam
       """
 }
