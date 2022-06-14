@@ -7,7 +7,6 @@ process pepperMarginDeepVariant {
     workflow.containerEngine == 'singularity' && params.gpus > 0 ? '--nv':
        ( workflow.containerEngine == 'docker' && params.gpus > 0 ? '--gpus all': null ) 
   }
-  publishDir params.outputDir, mode: 'copy'
 
   input:
     path('input.bam')
@@ -16,7 +15,7 @@ process pepperMarginDeepVariant {
     path('reference.fasta.fai')
 
   output:
-    path('pepper')
+    path('.')
 
   script: 
     if(params.gpus > 0)

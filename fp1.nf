@@ -40,7 +40,6 @@ workflow {
   chReference = Channel.value(params.reference)
   chReferenceIndex = Channel.value(params.referenceIndex)
 
-
   miniMap2(chInputFiles, chReference)
   samtoolsView(miniMap2.out)
 
@@ -61,5 +60,9 @@ workflow {
     samtoolsIndex.out,
     chReference,
     chReferenceIndex
-  )
+  ).subscribe {
+    Date now = new Date()
+    String dirName = now.format("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", TimeZone.getTimeZone('UTC'))
+    it.mklink("${params.outputDir}/${dirName}")
+  }
 }
