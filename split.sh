@@ -1,1 +1,0 @@
-singularity exec docker://pegi3s/seqkit seqkit split2 ./input/hCoV-19_DK_DCGC-4306_2020.fastq -O ./.splitted -l 300000 -force

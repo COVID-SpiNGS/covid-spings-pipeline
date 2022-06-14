@@ -58,6 +58,8 @@ process pepperMarginDeepVariantNoPublish {
   output:
     file('pepper/PEPPER_MARGIN_DEEPVARIANT_FINAL_OUTPUT.vcf.gz')
     file('pepper/PEPPER_MARGIN_DEEPVARIANT_FINAL_OUTPUT.vcf.gz.tbi')
+    file('pepper/PEPPER_MARGIN_DEEPVARIANT_FINAL_OUTPUT.g.vcf.gz')
+    file('pepper/PEPPER_MARGIN_DEEPVARIANT_FINAL_OUTPUT.g.vcf.gz.tbi')
 
   script: 
     if(params.gpus > 0)
@@ -65,6 +67,7 @@ process pepperMarginDeepVariantNoPublish {
         run_pepper_margin_deepvariant call_variant \
           --ont_r9_guppy5_su                       \
           --gpu                                    \
+          --gvcf                                   \
           --threads 1                              \
           --bam input.bam                          \
           --fasta reference.fasta                  \
@@ -74,6 +77,7 @@ process pepperMarginDeepVariantNoPublish {
       """
         run_pepper_margin_deepvariant call_variant \
           --ont_r9_guppy5_su                       \
+          --gvcf                                   \
           --threads 1                              \
           --bam input.bam                          \
           --fasta reference.fasta                  \
