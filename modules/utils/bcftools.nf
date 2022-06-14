@@ -1,6 +1,6 @@
 process bcftoolsView {
   maxForks 1
-  container params.singularity ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
+  container !params.docker ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
 
   input:
     path('input.vcf.gz')
@@ -16,8 +16,8 @@ process bcftoolsView {
 
 process bcftoolsConcat {
   maxForks 1
-  container params.singularity ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
-  publishDir params.publishDir, mode: 'copy'
+  container !params.docker ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
+  publishDir params.outputDir, mode: 'copy'
 
   input:
     path('list.txt')
@@ -35,8 +35,8 @@ process bcftoolsConcat {
 
 process bcftoolsMerge {
   maxForks 1
-  container params.singularity ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
-  publishDir params.publishDir, mode: 'copy'
+  container !params.docker ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
+  publishDir params.outputDir, mode: 'copy'
 
   input:
     path('list.txt')
@@ -54,8 +54,8 @@ process bcftoolsMerge {
 
 process bcftoolsStats {
   maxForks 1
-  container params.singularity ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
-  publishDir params.publishDir, mode: 'copy'
+  container !params.docker ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
+  publishDir params.outputDir, mode: 'copy'
 
   input:
     path('input.bcf')
@@ -71,8 +71,8 @@ process bcftoolsStats {
 
 process bcftoolsPlotVcfStats {
   maxForks 1
-  container params.singularity ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
-  publishDir params.publishDir, mode: 'copy'
+  container !params.docker ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
+  publishDir params.outputDir, mode: 'copy'
 
   input:
     path('input.vchk')
@@ -89,8 +89,8 @@ process bcftoolsPlotVcfStats {
 
 process bcftoolsConvert {
   maxForks 1
-  container params.singularity ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
-  publishDir params.publishDir, mode: 'copy'
+  container !params.docker ? 'docker://staphb/bcftools:1.15' : 'staphb/bcftools:1.15'
+  publishDir params.outputDir, mode: 'copy'
 
   input:
     path('input.bcf')
@@ -103,5 +103,3 @@ process bcftoolsConvert {
       bcftools convert input.bcf -o output.vcf 
     """
 }
-
-bcftoolsConvert

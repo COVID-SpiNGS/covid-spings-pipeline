@@ -1,6 +1,6 @@
 process miniMap2 {
   maxForks 1
-  container params.singularity ? 'docker://staphb/minimap2:2.24' : 'staphb/minimap2:2.24'
+  container !params.docker ? 'docker://staphb/minimap2:2.24' : 'staphb/minimap2:2.24'
 
   input:
     path('input.fastq')

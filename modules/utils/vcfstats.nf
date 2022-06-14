@@ -1,7 +1,7 @@
 process vcfstats {
   maxForks 1
-  container params.singularity ? 'docker://justold/vcfstats:0.4.0' : 'justold/vcfstats:0.4.0'
-  publishDir params.publishDir, mode: 'copy'
+  container !params.docker ? 'docker://justold/vcfstats:0.4.0' : 'justold/vcfstats:0.4.0'
+  publishDir params.outputDir, mode: 'copy'
 
   input:
     path('input.vcf')
