@@ -1,4 +1,6 @@
 .nextflow.log*
+nxf-tmp.*
+*.log
 
 
 /.nextflow

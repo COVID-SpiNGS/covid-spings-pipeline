@@ -1,5 +1,6 @@
 #! /usr/bin/env nextflow
 nextflow.enable.dsl = 2
+nextflow.preview.recursion = true
 
 
 include { miniMap2 } from './modules/alignment/miniMap2';
@@ -28,10 +29,22 @@ def helpMessage() {
     """
 }
 
+workflow mergeSort {
+  take: data
+  
+  main:
+    in = data.map {
+      it.size <= 2 ? it : [it[0], it[it.size - 1]]
+    }
+
+    samtoolsMerge(in)
+    samtoolsSort(samtoolsMerge.out)
+
+  emit:
+    samtoolsSort.out
+}
 
 workflow {
-  String previousBam = null
-
   if(params.watch)
     chInputFiles = Channel.watchPath("${params.inputDir}/*.fastq", 'create').until { it.name == params.exitFile }
   else
@@ -43,20 +56,12 @@ workflow {
   miniMap2(chInputFiles, chReference)
   samtoolsView(miniMap2.out)
 
-  chSamtoolsMergeInput = samtoolsView.out
-    .map { [it, previousBam] }
-    .map { [it[0], previousBam ? it[1] : it[0], previousBam ? true : false ] }
-    .map { 
-      previousBam = it[0]
-      it
-    }
+  mergeSort.scan(samtoolsView.out)
+  samtoolsIndex(mergeSort.out)
 
-  samtoolsMerge(chSamtoolsMergeInput)
-  samtoolsSort(samtoolsMerge.out)
-  samtoolsIndex(samtoolsSort.out)
 
   pepperMarginDeepVariant(
-    samtoolsSort.out,
+    mergeSort.out,
     samtoolsIndex.out,
     chReference,
     chReferenceIndex
@@ -66,3 +71,11 @@ workflow {
     it.mklink("${params.outputDir}/${dirName}")
   }
 }
+
+// Name fastq                         ; size     ; reads bam ; mergebam ; reads mergebam ; run time pepper 
+// IMSSC2-1-2022-00011_filtered.fastq ;  94,9 MB ; 73488     ; 33,6 MB  ; 73488          ;    15m 51s
+// IMSSC2-1-2022-00012_filtered.fastq ; 168,4 MB ; 129285    ; 92,8 MB  ; 202773         ; 1h 21m 38s
+// IMSSC2-1-2022-00013_filtered.fastq ; 103,5 MB ; 79484     ; 129,6 MB ; 282257         ; 2h 24m 36s
+// IMSSC2-1-2022-00014_filtered.fastq ; 105,6 MB ; 81258     ; 166,9 MB ; 363515         ; 3h 25m 16s
+// IMSSC2-1-2022-00015_filtered.fastq ; 132,5 MB ; 101929    ; 213,7 MB ; 465444         ; 4h 58m 31s
+

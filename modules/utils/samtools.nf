@@ -14,7 +14,30 @@ process samtoolsView {
     """
 }
 
+
 process samtoolsMerge {
+  maxForks 1
+  container !params.docker ? 'docker://staphb/samtools:1.15' : 'staphb/samtools:1.15'
+
+  input:
+    path('input.bam')
+    
+  output:
+    file('merged.bam')
+
+  script:
+    """
+      samtools merge -@ ${params.threads} -o merged.bam input.bam*
+    """ 
+    
+
+    // ls --human-readable --kibibytes -Sl input.bam*
+    // samtools view -c output.bam
+    // echo '\n'
+}
+
+process samtoolsMerge2 {
+  debug true
   maxForks 1
   container !params.docker ? 'docker://staphb/samtools:1.15' : 'staphb/samtools:1.15'
 
@@ -27,11 +50,13 @@ process samtoolsMerge {
   script:
     if(append)
       """
-        samtools merge -@ ${params.threads} output.bam previous.bam input.bam
+        samtools merge -@ ${params.threads} -o output.bam previous.bam input.bam
+        echo 'Append'
       """
     else
       """
         mv input.bam output.bam
+        echo 'Move'
       """
 }
 
@@ -40,14 +65,14 @@ process samtoolsSort {
   container !params.docker ? 'docker://staphb/samtools:1.15' : 'staphb/samtools:1.15'
 
   input:
-    path('input.bam')
+    path('unsorted.bam')
     
   output:
-    file('output.bam')
+    file('sorted.bam')
 
   script:
     """
-      samtools sort -@ ${params.threads} input.bam -o output.bam 
+      samtools sort -@ ${params.threads} unsorted.bam -o sorted.bam 
     """
 }
 

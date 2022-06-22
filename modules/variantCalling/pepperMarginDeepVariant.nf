@@ -1,6 +1,6 @@
 
 process pepperMarginDeepVariant {
-  maxForks 1
+  maxForks params.threads
   accelerator params.gpus 
   container !params.docker ? 'docker://kishwars/pepper_deepvariant:r0.8' + (params.gpus > 0 ? '-gpu': '') : 'kishwars/pepper_deepvariant:r0.8' + (params.gpus > 0 ? '-gpu': '')
   containerOptions = { 
@@ -21,20 +21,22 @@ process pepperMarginDeepVariant {
     if(params.gpus > 0)
       """
         run_pepper_margin_deepvariant call_variant \
-          --ont_r9_guppy5_su                       \
-          --gpu                                    \
-          --threads ${params.threads}              \
-          --bam input.bam                          \
-          --fasta reference.fasta                  \
+          --ont_r9_guppy5_su                            \
+          --gpu                                         \
+          --gvcf                                        \
+          --threads 1                                   \
+          --bam input.bam                               \
+          --fasta reference.fasta                       \
           --output_dir ./pepper
       """
     else 
       """
         run_pepper_margin_deepvariant call_variant \
-          --ont_r9_guppy5_su                       \
-          --threads ${params.threads}              \
-          --bam input.bam                          \
-          --fasta reference.fasta                  \
+          --ont_r9_guppy5_su                            \
+          --threads 1                                   \
+          --gvcf                                        \
+          --bam input.bam                               \
+          --fasta reference.fasta                       \
           --output_dir ./pepper
       """
 }
@@ -63,7 +65,7 @@ process pepperMarginDeepVariantNoPublish {
   script: 
     if(params.gpus > 0)
       """
-        run_pepper_margin_deepvariant call_variant \
+        time run_pepper_margin_deepvariant call_variant \
           --ont_r9_guppy5_su                       \
           --gpu                                    \
           --gvcf                                   \
@@ -74,7 +76,7 @@ process pepperMarginDeepVariantNoPublish {
       """
     else 
       """
-        run_pepper_margin_deepvariant call_variant \
+        time run_pepper_margin_deepvariant call_variant \
           --ont_r9_guppy5_su                       \
           --gvcf                                   \
           --threads 1                              \
