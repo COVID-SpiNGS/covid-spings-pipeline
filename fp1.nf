@@ -1,13 +1,9 @@
 #! /usr/bin/env nextflow
-nextflow.enable.dsl = 2
 nextflow.preview.recursion = true
-
 
 include { miniMap2 } from './modules/alignment/miniMap2';
 include { samtoolsView; samtoolsMerge; samtoolsSort; samtoolsIndex } from './modules/utils/samtools';
 include { pepperMarginDeepVariant } from './modules/variantCalling/pepperMarginDeepVariant';
-
-import java.nio.file.Paths;
 
 def helpMessage() {
   log.info """
