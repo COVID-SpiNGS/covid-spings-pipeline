@@ -67,11 +67,3 @@ workflow {
     it.mklink("${params.outputDir}/${dirName}")
   }
 }
-
-// Name fastq                         ; size     ; reads bam ; mergebam ; reads mergebam ; run time pepper 
-// IMSSC2-1-2022-00011_filtered.fastq ;  94,9 MB ; 73488     ; 33,6 MB  ; 73488          ;    15m 51s
-// IMSSC2-1-2022-00012_filtered.fastq ; 168,4 MB ; 129285    ; 92,8 MB  ; 202773         ; 1h 21m 38s
-// IMSSC2-1-2022-00013_filtered.fastq ; 103,5 MB ; 79484     ; 129,6 MB ; 282257         ; 2h 24m 36s
-// IMSSC2-1-2022-00014_filtered.fastq ; 105,6 MB ; 81258     ; 166,9 MB ; 363515         ; 3h 25m 16s
-// IMSSC2-1-2022-00015_filtered.fastq ; 132,5 MB ; 101929    ; 213,7 MB ; 465444         ; 4h 58m 31s
-
