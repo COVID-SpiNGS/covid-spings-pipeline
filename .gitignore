@@ -28,3 +28,7 @@ nextflow
 .nextflow
 .nextflow/
 .nextflow.log.*
+
+
+humanGenome/*
+covidReference/*
