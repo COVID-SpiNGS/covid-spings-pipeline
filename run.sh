@@ -4,7 +4,7 @@ mkdir ./simulation_output/
 
 
 
-./NanoSim/src/read_analysis.py genome -i ./data/MT-MTPHL-3995074_R1.fastq -rg ./data/reference_genome.fasta
+./NanoSim/src/read_analysis.py genome -i ./data/MT-MTPHL-3995074_R1.fastq -rg ./data/SARS-CoV-2_MSA_file1.fasta
 
 
 
