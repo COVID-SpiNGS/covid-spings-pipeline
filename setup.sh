@@ -29,6 +29,7 @@ setupNanosim(){
     git submodule init
     git submodule update
     cp fixed_requirements.txt ./NanoSim/requirements.txt
+    # Solution
     #cd NanoSim %% conda create --name nanosim python=3.7
     #conda activate nanosim
     #conda install --file requirements.txt -c conda-forge -c bioconda
