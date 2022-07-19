@@ -24,6 +24,7 @@ for i in {1..22}
 
 
 
+
 #000sudo mkdir /new_simulation_output/#output/train_model.sh && output/simulate.sh -o /new_simulation_output/
 #git clone git@github.com:bcgsc/NanoSim.git && fix()
 
