@@ -1,0 +1,3 @@
+[submodule "NanoSim"]
+	path = NanoSim
+	url = https://github.com/bcgsc/NanoSim.git
