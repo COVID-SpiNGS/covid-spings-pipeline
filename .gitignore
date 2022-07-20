@@ -29,6 +29,7 @@ nextflow
 .nextflow/
 .nextflow.log.*
 
+NanoSim_output/*
 output/
 data/
 humanGenome/*
