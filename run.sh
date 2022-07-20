@@ -1,12 +1,15 @@
 #!/bin/bash
 
+eval "$(conda shell.bash hook)"
+conda activate nanosim
 
-mkdir ./"NanoSim_output"/ && cd NanoSim_output
+mkdir ./"NanoSim_output"/
 
 
 data_dir="$(dirname $(realpath $0) )"
 echo $data_dir
 
+cd NanoSim_output
 #Train
 ../NanoSim/src/read_analysis.py genome -i "$data_dir/data/covid/SP-2_R1.fastq" -rg "$data_dir/data/covid/SARS-CoV-2_MSA_file1.fasta"
 #Simulate

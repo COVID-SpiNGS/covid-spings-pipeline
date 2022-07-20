@@ -35,13 +35,14 @@ setupNanosim(){
     git submodule update
     cp fixed_requirements.txt ./NanoSim/requirements.txt
     # Solution for this ??
-    #cd NanoSim %% conda create --name nanosim python=3.7
-    #conda activate nanosim
-    #conda install --file requirements.txt -c conda-forge -c bioconda
-    #cd ..
+    eval "$(conda shell.bash hook)"
+    #conda init
+    cd NanoSim && conda create --name nanosim_test python=3.7
+    conda activate nanosim_test && conda install --file requirements.txt -c conda-forge -c bioconda
+    cd .. && conda activate base
 }
 
-setupDirs
+#setupDirs
 #downloadHumanGenome
-downloadCovid
+#downloadCovid
 setupNanosim
