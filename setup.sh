@@ -37,8 +37,8 @@ setupNanosim(){
     # Solution for this ??
     eval "$(conda shell.bash hook)"
     #conda init
-    cd NanoSim && conda create --name nanosim_test python=3.7
-    conda activate nanosim_test && conda install --file requirements.txt -c conda-forge -c bioconda
+    cd NanoSim && conda create --name nanosim_test python=3.7 --yes
+    conda activate nanosim_test && conda install --file requirements.txt -c conda-forge -c bioconda --yes
     cd .. && conda activate base
 }
 
