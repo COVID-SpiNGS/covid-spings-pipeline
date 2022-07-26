@@ -10,7 +10,7 @@ downloadHumanGenome(){
   for i in {1..22}
     do
       echo $i
-        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr"$1".fa.gz" -P .data/humanGenome
+        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr"$i".fa.gz" -P .data/humanGenome
         extract "$i"
     done
 }
@@ -34,12 +34,12 @@ setupNanosim(){
     git submodule init
     git submodule update
     eval "$(conda shell.bash hook)"
-    cd NanoSim && conda create --name nanosim_test python=3.7 --yes
-    conda activate nanosim_test && conda install --file requirements.txt -c conda-forge -c bioconda --yes
+    conda create --name nanosim python=3.7 --yes
+    conda activate nanosim && conda install --file fixed_requirements.txt -c conda-forge -c bioconda --yes
     cd .. && conda activate base
 }
 
-setupDirs
-downloadHumanGenome
-downloadCovid
+#setupDirs
+#downloadHumanGenome
+#downloadCovid
 setupNanosim
