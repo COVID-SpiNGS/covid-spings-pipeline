@@ -1,0 +1,14 @@
+.venv/
+input/
+output/
+tmp/
+log/
+__pycache__/
+
+*.log
+*.pkl
+*.bam.pkl
+*.bam
+*.bai
+*.sam
+run_full.sh
