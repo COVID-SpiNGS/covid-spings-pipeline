@@ -3,7 +3,7 @@ name: Covid-SpiNGS-Pipeline
 on:
   push:
     branches:
-    - vc-integration
+    - development
 
 
 jobs:
