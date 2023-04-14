@@ -16,7 +16,7 @@ jobs:
     - run: java -version
     - run: curl -s https://get.nextflow.io | bash
     - run: chmod 777 nextflow
-    - run: ./nextflow run test.nf
+    - run: ./nextflow run run_pipeline.nf
     
   
 
