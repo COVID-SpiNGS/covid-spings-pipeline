@@ -37,5 +37,6 @@ process fp2 {
 }
 
 workflow {
-  test | setup_sim
+  result = test()
+  result.view { "Result: ${it}" }
 }
