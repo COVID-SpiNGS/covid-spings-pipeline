@@ -15,6 +15,9 @@ process test {
     stdout
   script:
   """
+  pwd
+  ls -la
+  cd ..
   ls -la
   """
 }
