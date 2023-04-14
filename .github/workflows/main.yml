@@ -14,7 +14,8 @@ jobs:
     - uses: actions/checkout@v3
     - run: ls -la
     - run: java -version
-    - run: curl -s https://get.nextflow.io | bash && chmod +x nextflow
+    - run: curl -s https://get.nextflow.io | bash
+    - run: chmod +x nextflow
     - run: nextflow run_pipeline.nf
     
   
