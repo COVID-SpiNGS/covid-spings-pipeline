@@ -13,5 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: ls -la
+    - run: java -version
+    - run: curl -s https://get.nextflow.io | bash
+    
   
 
