@@ -15,6 +15,7 @@ jobs:
     - run: ls -la
     - run: java -version
     - run: curl -s https://get.nextflow.io | bash
+    - run: nextflow run_pipeline.nf
     
   
 
