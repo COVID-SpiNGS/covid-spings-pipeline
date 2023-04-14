@@ -1,0 +1,17 @@
+name: Covid-SpiNGS-Pipeline
+
+on:
+  push:
+    branches:
+    - vc-integration
+
+
+jobs:
+  run-job:
+    name: run pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - id: step1
+        run: pwd
+  
+
