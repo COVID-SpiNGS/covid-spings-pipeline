@@ -29,5 +29,5 @@ process test {
 
 
 workflow {
-  splitLetters | convertToUpper | test }
+  splitLetters | convertToUpper | test
 }
