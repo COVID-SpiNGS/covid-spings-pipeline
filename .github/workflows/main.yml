@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: step1
-        run: pwd
+        run: ls -la
   
 
