@@ -33,7 +33,7 @@ process setup_sim {
 process test {
 
   """
-  ./nextflow run test.nf
+  ls -la
   """
 }
 
@@ -52,5 +52,5 @@ process fp2 {
 }
 
 workflow {
-  test | setup_sim
+  test 
 }
