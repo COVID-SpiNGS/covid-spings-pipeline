@@ -46,3 +46,4 @@ process setupNanosim {
 
 workflow {
   setupDirs
+}
