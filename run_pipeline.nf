@@ -1,7 +1,6 @@
 #! /usr/bin/env nextflow
 
 nextflow.enable.dsl = 2
-wd = $PWD
 
 //include { miniMap2 } from './modules/alignment/miniMap2';
 //include { samtoolsView; samtoolsSort; samtoolsIndex } from './modules/utils/samtools';
