@@ -45,4 +45,4 @@ process setupNanosim {
 
 
 workflow {
-  setupDirs | downloadHumanGenome
+  setupDirs
