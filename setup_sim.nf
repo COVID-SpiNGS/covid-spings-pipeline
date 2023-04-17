@@ -45,5 +45,4 @@ process setupNanosim {
 
 
 workflow {
-  setupDirs | downloadHumanGenome | extract | downloadCovid | setupNanosim
-}
+  setupDirs | downloadHumanGenome
