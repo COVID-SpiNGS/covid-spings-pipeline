@@ -13,7 +13,7 @@ process setupDirs {
 process downloadHumanGenome {
 
   input:
-  int i
+  val i
   
   """
   for $i in {1..22}
@@ -33,7 +33,7 @@ process downloadHumanGenome {
 process downloadHumanGenome {
 
   input:
-  int i
+  val i
   
   """
   for $i in {1..22}
