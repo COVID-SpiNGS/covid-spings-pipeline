@@ -13,8 +13,15 @@ process setupDirs {
 process downloadHumanGenome {
   shell:
   '''
-  USER="xyz"
-  echo "User $USER hello"
+  for i in {1..22}
+    do
+      if $i != 0:
+      then
+        echo $i
+        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr$i.fa.gz" -P .data/humanGenome
+        gzip -d "./data/humanGenome/chr$i.fa.gz"
+      fi
+    done
   '''
 }
 
