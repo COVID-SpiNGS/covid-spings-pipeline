@@ -29,7 +29,6 @@ process downloadHumanGenome {
 
 
 process downloadCovid {
-  
   shell:
   '''
   wget "https://storage.googleapis.com/nih-sequence-read-archive/sra-src/SRR12412952/SP-2_R1.fastq.1" -P ./data/covid/
