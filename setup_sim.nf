@@ -1,9 +1,9 @@
 #! /usr/bin/env nextflow
 
-nextflow.enable.dsl = 2
+//nextflow.enable.dsl = 2
 
 process setupDirs {
-  script:
+  
   """
   mkdir "data"
   mkdir "data"/"humanGenome" && mkdir "data"/"covid"
@@ -11,7 +11,8 @@ process setupDirs {
 }
 
 process downloadHumanGenome {
-  script:
+
+  
   """
   for i in {1..22}
     do
@@ -27,7 +28,7 @@ process downloadHumanGenome {
 }
 
 /**process downloadCovid {
-  script:
+  
   """
   wget "https://storage.googleapis.com/nih-sequence-read-archive/sra-src/SRR12412952/SP-2_R1.fastq.1" -P ./data/covid/
   wget "https://storage.googleapis.com/nih-sequence-read-archive/sra-src/SRR12412952/SP-2_R2.fastq.1" -P ./data/covid/
@@ -40,7 +41,7 @@ process downloadHumanGenome {
 
 
 process setupNanosim {
-  script:
+  
   """
   git submodule init
   git submodule update
