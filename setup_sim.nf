@@ -22,6 +22,10 @@ process downloadHumanGenome {
         gzip -d "./data/humanGenome/chr$i.fa.gz"
       fi
     done
+  
+  ls -la
+  cd data
+  ls -la
   '''
 }
 
