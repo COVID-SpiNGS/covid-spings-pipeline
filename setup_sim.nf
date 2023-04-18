@@ -23,7 +23,7 @@ process downloadHumanGenome {
         echo $i
         wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr"$i".fa.gz" -P .data/humanGenome
         gzip -d "./data/humanGenome/chr"$i".fa.gz"
-      fu
+      fi
     done
 
   ls -la
