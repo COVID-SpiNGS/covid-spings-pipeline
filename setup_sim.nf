@@ -12,6 +12,21 @@ process setupDirs {
 
 process downloadHumanGenome {
 
+  
+  """
+  wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr4.fa.gz" -P .data/humanGenome
+
+  ls -la
+  cd data
+  ls -la
+  """
+}
+
+
+/**
+
+process downloadHumanGenome {
+
   input:
   int i
   
@@ -32,7 +47,7 @@ process downloadHumanGenome {
   """
 }
 
-/**process downloadCovid {
+process downloadCovid {
   
   """
   wget "https://storage.googleapis.com/nih-sequence-read-archive/sra-src/SRR12412952/SP-2_R1.fastq.1" -P ./data/covid/
