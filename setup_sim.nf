@@ -13,7 +13,7 @@ process setupDirs {
 process downloadHumanGenome {
   shell:
   '''
-  user = 'xyz'
+  USER = 'xyz'
   echo "User $USER hello"
   '''
 }
