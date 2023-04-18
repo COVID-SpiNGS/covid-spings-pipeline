@@ -11,8 +11,11 @@ process setupDirs {
 }
 
 process downloadHumanGenome {
-  script:
-  template '../../../my_script.sh'
+  shell:
+  '''
+  user = 'xyz'
+  echo "User $USER hello"
+  '''
 }
 
 
