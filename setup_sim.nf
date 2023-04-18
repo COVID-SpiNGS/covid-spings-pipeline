@@ -12,6 +12,8 @@ process setupDirs {
 
 process downloadHumanGenome {
 
+  input:
+  int i
   
   """
   for $i in {1..22}
