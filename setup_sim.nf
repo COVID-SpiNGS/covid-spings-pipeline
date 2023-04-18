@@ -21,8 +21,8 @@ process downloadHumanGenome {
       if $i != 0:
       then
         echo $i
-        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr"$i".fa.gz" -P .data/humanGenome
-        gzip -d "./data/humanGenome/chr"$i".fa.gz"
+        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr$i.fa.gz" -P .data/humanGenome
+        gzip -d "./data/humanGenome/chr$i.fa.gz"
       fi
     done
 
