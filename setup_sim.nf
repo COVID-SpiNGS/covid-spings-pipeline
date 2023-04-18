@@ -12,9 +12,11 @@ process setupDirs {
 
 process downloadHumanGenome {
 
+  input:
+  int i
   
   """
-  for i in {1..22}
+  for $i in {1..22}
     do
       echo $i
         wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr"$i".fa.gz" -P .data/humanGenome
