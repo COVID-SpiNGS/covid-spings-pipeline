@@ -24,8 +24,6 @@ process downloadHumanGenome {
     done
   
   ls -la
-  cd data
-  ls -la
   '''
 }
 
