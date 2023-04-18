@@ -1,6 +1,6 @@
 #! /usr/bin/env nextflow
 
-//nextflow.enable.dsl = 2
+nextflow.enable.dsl = 2
 
 process setupDirs {
   
@@ -14,6 +14,8 @@ process downloadHumanGenome {
 
   input:
   int i
+
+  $i=1
   
   """
   for $i in {1..22}
