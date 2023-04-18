@@ -11,15 +11,7 @@ process setupDirs {
 }
 
 process downloadHumanGenome {
-  """
-  for i in {1..22}
-    do
-      if $i != 0:
-      then
-        echo "$i"
-      fi
-    done
-  """
+  template: 'my_script.sh'
 }
 
 
