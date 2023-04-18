@@ -12,7 +12,7 @@ process setupDirs {
 
 process downloadHumanGenome {
   script:
-  template 'my_script.sh'
+  template './my_script.sh'
 }
 
 
