@@ -14,7 +14,15 @@ process downloadHumanGenome {
 
   
   """
-  wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr4.fa.gz" -P .data/humanGenome
+  for $i in {1..22}
+    do
+      if $i != 0:
+      then
+        echo $i
+        echo "hallo hallo hallo"
+      fi
+    done
+  
 
   ls -la
   cd data
