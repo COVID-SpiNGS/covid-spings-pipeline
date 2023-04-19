@@ -27,7 +27,14 @@ process downloadHumanGenome {
   '''
 }
 
+process downloadCovid {
+  shell:
+  '''
+  echo "Blahblah"
+  '''
+}
 
+/**
 process downloadCovid {
   shell:
   '''
@@ -40,7 +47,7 @@ process downloadCovid {
   '''
 }
 
-/**
+
 process setupNanosim {
   
   """
