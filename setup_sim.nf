@@ -30,7 +30,7 @@ process downloadHumanGenome {
 process downloadCovid {
   shell:
   '''
-  wget "https://storage.googleapis.com/nih-sequence-read-archive/sra-src/SRR12412952/SP-2_R1.fastq.1" -P ./data/covid/
+  wget "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=OX463106&rettype=fasta&retmode=text" -P ./data/covid/
   '''
 }
 
