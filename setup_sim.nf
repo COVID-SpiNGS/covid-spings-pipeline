@@ -30,7 +30,7 @@ process downloadHumanGenome {
 process downloadCovid {
   shell:
   '''
-  echo "Blahblah"
+  wget "https://storage.googleapis.com/nih-sequence-read-archive/sra-src/SRR12412952/SP-2_R1.fastq.1" -P ./data/covid/
   '''
 }
 
@@ -38,7 +38,7 @@ process downloadCovid {
 process downloadCovid {
   shell:
   '''
-  wget "https://storage.googleapis.com/nih-sequence-read-archive/sra-src/SRR12412952/SP-2_R1.fastq.1" -P ./data/covid/
+  
   wget "https://storage.googleapis.com/nih-sequence-read-archive/sra-src/SRR12412952/SP-2_R2.fastq.1" -P ./data/covid/
   mv ./data/covid/SP-2_R1.fastq.1 ./data/covid/SP-2_R1.fastq
   mv ./data/covid/SP-2_R2.fastq.1 ./data/covid/SP-2_R2.fastq
