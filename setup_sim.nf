@@ -12,6 +12,8 @@ process setupDirs {
   mkdir data
   mkdir ./data/human_genome
   mkdir ./data/covid
+  cd data
+  pwd
   """
 }
 
