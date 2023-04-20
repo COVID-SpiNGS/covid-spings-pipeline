@@ -4,16 +4,10 @@ nextflow.enable.dsl = 2
 
 process setupDirs {
 
-  output:
-  val txt
-  
   """
   mkdir data
-  mkdir ./data/humanGenome
+  mkdir ./data/human_genome
   mkdir ./data/covid
-  ls -la
-  cd data
-  ls -la
   """
 }
 
@@ -29,11 +23,13 @@ process downloadHumanGenome {
       if $i != 0:
       then
         echo $i
-        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr$i.fa.gz" -P .data/humanGenome
+        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr$i.fa.gz" -P ./data/human_genome
         gzip -d "./data/humanGenome/chr$i.fa.gz"
       fi
     done
   
+  cd data
+  cd human_genome
   ls -la
   '''
 }
@@ -78,5 +74,5 @@ process setupNanosim {
 
 
 workflow { 
-  setupDirs | view { it.trim() }
+  setupDirs | downloadHumanGenome | view { it.trim() }
 }
