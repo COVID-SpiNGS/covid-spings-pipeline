@@ -58,7 +58,7 @@ process setupNanosim {
   """
   git submodule init
   git submodule update
-  eval "$(conda shell.bash hook)"
+  eval $(conda shell.bash hook)
   conda create --name nanosim python=3.7 --yes
   conda activate nanosim && conda install --file fixed_requirements.txt -c conda-forge -c bioconda --yes
   cd .. && conda activate base
