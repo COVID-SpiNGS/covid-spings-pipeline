@@ -5,6 +5,7 @@ nextflow.enable.dsl = 2
 process setupDirs {
 
   """
+  pwd
   mkdir data
   mkdir ./data/human_genome
   mkdir ./data/covid
@@ -27,10 +28,6 @@ process downloadHumanGenome {
         gzip -d "./data/humanGenome/chr$i.fa.gz"
       fi
     done
-  
-  cd data
-  cd human_genome
-  ls -la
   '''
 }
 
