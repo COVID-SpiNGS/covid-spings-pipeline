@@ -5,8 +5,8 @@ nextflow.enable.dsl = 2
 process setupDirs {
   
   """
-  mkdir "data"
-  mkdir "data"/"humanGenome" && mkdir "data"/"covid"
+  mkdir data
+  mkdir data/humanGenome && mkdir data/covid
   """
 }
 
@@ -39,9 +39,6 @@ process downloadCovid {
   shell:
   '''
   wget "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=OX463106&rettype=fasta&retmode=text" -O covid_ref.fasta
-  cd data
-  ls -la
-  cd covid
   ls -la
   '''
 }
