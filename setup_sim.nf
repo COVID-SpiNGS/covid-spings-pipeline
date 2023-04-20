@@ -50,7 +50,6 @@ process downloadCovid {
   mv ./data/covid/5ede595708aad3013143c7f3?action=download\&direct\&version=3 ./data/covid/SARS-CoV-2_MSA_file1.fasta
   '''
 }
-**/
 
 process setupNanosim {
   
@@ -64,8 +63,19 @@ process setupNanosim {
   cd .. && conda activate base
   """
 }
+**/
 
+process installConda {
+  
+  shell:
+  """
+  ENV CONDA_DIR /opt/conda
+  RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+      /bin/bash ~/miniconda.sh -b -p /opt/conda
+  ENV PATH=$CONDA_DIR/bin:$PATH
+  """
+}
 
 workflow { 
-  setupDirs | downloadHumanGenome | downloadCovid | setupNanosim
+  setupDirs | downloadHumanGenome | downloadCovid | installConda
 }
