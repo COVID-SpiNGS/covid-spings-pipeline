@@ -4,11 +4,8 @@ nextflow.enable.dsl = 2
 
 process setupDirs {
 
-    output:
-    val txt
-
+  shell:
   """
-  pwd
   mkdir data
   mkdir ./data/human_genome
   mkdir ./data/covid
@@ -18,9 +15,6 @@ process setupDirs {
 }
 
 process downloadHumanGenome {
-
-  output:
-  val txt
 
   shell:
   '''
@@ -38,13 +32,9 @@ process downloadHumanGenome {
 
 process downloadCovid {
 
-  output:
-  val txt
-
   shell:
   '''
   wget "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=OX463106&rettype=fasta&retmode=text" -O covid_ref.fasta
-  ls -la
   '''
 }
 
@@ -61,7 +51,7 @@ process downloadCovid {
   '''
 }
 
-
+/**
 process setupNanosim {
   
   """
@@ -76,5 +66,5 @@ process setupNanosim {
 
 
 workflow { 
-  setupDirs | view { it.trim() }
+  setupDirs | downloadHumanGenome | downloadCovid 
 }
