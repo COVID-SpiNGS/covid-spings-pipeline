@@ -38,7 +38,7 @@ process downloadCovid {
 
   shell:
   '''
-  wget "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=OX463106&rettype=fasta&retmode=text" -P ./data/covid/
+  wget "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=OX463106&rettype=fasta&retmode=text" -o ./data/covid/covid_ref.fasta
   cd data
   ls -la
   cd covid
