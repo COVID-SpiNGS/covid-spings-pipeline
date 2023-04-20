@@ -33,12 +33,12 @@ process downloadHumanGenome {
 
 process downloadCovid {
 
-  output:
-  val txt
-
   shell:
   '''
   wget "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=OX463106&rettype=fasta&retmode=text" -P ./data/covid/
+  cd data
+  ls -la
+  cd covid
   ls -la
   '''
 }
