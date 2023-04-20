@@ -12,6 +12,8 @@ process setupDirs {
   mkdir ./data/humanGenome
   mkdir ./data/covid
   ls -la
+  cd data
+  ls -la
   """
 }
 
