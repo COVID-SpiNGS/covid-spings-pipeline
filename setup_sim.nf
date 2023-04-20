@@ -74,5 +74,5 @@ process setupNanosim {
 
 
 workflow { 
-  downloadCovid | view { it.trim() }
+  setupDirs | downloadCovid | view { it.trim() }
 }
