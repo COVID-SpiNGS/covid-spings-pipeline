@@ -4,6 +4,9 @@ nextflow.enable.dsl = 2
 
 process setupDirs {
 
+    output:
+    val txt
+
   """
   pwd
   mkdir data
