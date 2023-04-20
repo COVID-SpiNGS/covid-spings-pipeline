@@ -3,10 +3,15 @@
 nextflow.enable.dsl = 2
 
 process setupDirs {
+
+  output:
+  val txt
   
   """
   mkdir data
-  mkdir data/humanGenome && mkdir data/covid
+  mkdir ./data/humanGenome
+  mkdir ./data/covid
+  ls -la
   """
 }
 
@@ -71,5 +76,5 @@ process setupNanosim {
 
 
 workflow { 
-  setupDirs | downloadCovid | view { it.trim() }
+  setupDirs | view { it.trim() }
 }
