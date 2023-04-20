@@ -50,10 +50,11 @@ process downloadCovid {
   mv ./data/covid/5ede595708aad3013143c7f3?action=download\&direct\&version=3 ./data/covid/SARS-CoV-2_MSA_file1.fasta
   '''
 }
+**/
 
-/**
 process setupNanosim {
   
+  shell:
   """
   git submodule init
   git submodule update
@@ -62,9 +63,9 @@ process setupNanosim {
   conda activate nanosim && conda install --file fixed_requirements.txt -c conda-forge -c bioconda --yes
   cd .. && conda activate base
   """
-}**/
+}
 
 
 workflow { 
-  setupDirs | downloadHumanGenome | downloadCovid 
+  setupDirs | downloadHumanGenome | downloadCovid | setupNanosim
 }
