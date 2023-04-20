@@ -11,6 +11,10 @@ process setupDirs {
 }
 
 process downloadHumanGenome {
+
+  output:
+  val txt
+
   shell:
   '''
   for i in {1..22}
@@ -28,9 +32,14 @@ process downloadHumanGenome {
 }
 
 process downloadCovid {
+
+  output:
+  val txt
+
   shell:
   '''
   wget "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=OX463106&rettype=fasta&retmode=text" -P ./data/covid/
+  ls -la
   '''
 }
 
