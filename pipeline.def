@@ -2,5 +2,5 @@ Bootstrap: library
 From: ubuntu:latest
 
 %post
-    cp -R ./* <destination_folder>
+    cp -R ./* ./
     ls -la
