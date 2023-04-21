@@ -3,5 +3,9 @@ From: ubuntu:latest
 
 %post
     mkdir pipeline
-    cp fp1.nf /pipeline
+    cp 
     ls -la
+
+
+%files
+    fp1.nf /pipeline
