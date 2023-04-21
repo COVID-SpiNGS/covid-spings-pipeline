@@ -2,10 +2,10 @@ Bootstrap: library
 From: ubuntu:latest
 
 %post
-    mkdir pipeline
+    mkdir pipelinex
     cp 
     ls -la
 
 
 %files
-    fp1.nf /pipeline
+    fp1.nf /pipelinex
