@@ -2,5 +2,6 @@ Bootstrap: library
 From: ubuntu:latest
 
 %post
-    cp -R ./* ./
+    mkdir pipeline
+    cp -R /* /pipeline
     ls -la
