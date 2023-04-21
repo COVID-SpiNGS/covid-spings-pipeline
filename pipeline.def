@@ -11,5 +11,8 @@ From: ubuntu:latest
     fp1.nf /pipelinex/fp1.nf
 
 
+%startscript
+    ls -la
+
 %runscript
     ls -la  
