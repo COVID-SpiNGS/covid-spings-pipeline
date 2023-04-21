@@ -8,4 +8,4 @@ From: ubuntu:latest
 
 
 %files
-    fp1.nf /pipelinex
+    fp1.nf /pipelinex/fp1.nf
