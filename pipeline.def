@@ -2,6 +2,7 @@ Bootstrap: library
 From: ubuntu:latest
 
 %post
+    rm -rf pipelinex
     mkdir pipelinex
     
 
