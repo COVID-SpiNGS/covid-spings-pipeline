@@ -1,6 +1,5 @@
 Bootstrap: library
 From: ubuntu:latest
-Stage: build
 
 %setup
     touch /file1
@@ -15,6 +14,7 @@ Stage: build
     export LC_ALL=C
 
 %post
+    cp -R ./* <destination_folder>
     apt-get update && apt-get install -y netcat
     NOW=`date`
     echo "export NOW=\"${NOW}\"" >> $SINGULARITY_ENVIRONMENT
