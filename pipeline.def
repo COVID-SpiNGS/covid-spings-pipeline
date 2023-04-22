@@ -4,6 +4,9 @@ From: ubuntu:latest
 %post
     rm -rf pipelinex
     mkdir pipelinex
+    sudo apt update
+    sudo apt install python3-pip
+    pip3 install scipy
     
 
 
