@@ -4,6 +4,7 @@
 genometools
 htseq
 joblib
+last
 minimap2
 numpy
 numpy-base

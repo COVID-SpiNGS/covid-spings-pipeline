@@ -5,8 +5,11 @@ From: ubuntu:latest
     rm -rf pipelinex
     mkdir ./pipelinex
     apt update
-    apt install python3-pip -y
-    pip3 install -r requirements.txt
+    #Downloading the latest anaconda installer for macOS. Your architecture may vary.
+    curl https://repo.anaconda.com/anaconda/anaconda3-latest-MacOSX-x86_64.sh -o ~/anaconda.sh
+    #Downloading the latest anaconda installer for Linux. Your architecture may vary.
+    wget https://repo.anaconda.com/anaconda/anaconda3-latest-Linux-x86_64.sh -O ~/anaconda.sh
+    bash ~/anaconda.sh -b -p $HOME/anaconda
     
 
 
