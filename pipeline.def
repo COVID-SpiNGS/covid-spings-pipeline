@@ -6,7 +6,7 @@ From: ubuntu:latest
     mkdir pipelinex
     apt update
     apt install python3-pip -y
-    pip3 install fixed_requirements.txt
+    pip3 install -r fixed_requirements.txt
     
 
 
