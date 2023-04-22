@@ -3,15 +3,16 @@ From: ubuntu:latest
 
 %post
     rm -rf pipelinex
-    mkdir pipelinex
+    mkdir ./pipelinex
     apt update
     apt install python3-pip -y
-    pip3 install -r fixed_requirements.txt
+    pip3 install -r ./pipelinex/requirements.txt
     
 
 
 %files
-    * /pipelinex/*
+    * ./pipelinex/*
+    fixed_requirements.txt ./pipelinex/requirements.txt
 
 
 %startscript
