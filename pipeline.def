@@ -5,6 +5,7 @@ From: ubuntu:latest
     rm -rf pipelinex
     mkdir ./pipelinex
     apt update
+    apt-get install curl
     #Downloading the latest anaconda installer for macOS. Your architecture may vary.
     curl https://repo.anaconda.com/anaconda/anaconda3-latest-MacOSX-x86_64.sh -o ~/anaconda.sh
     #Downloading the latest anaconda installer for Linux. Your architecture may vary.
