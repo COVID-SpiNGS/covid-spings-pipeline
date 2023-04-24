@@ -1,4 +1,4 @@
-Bootstrap: library
+Bootstrap: docker
 From: continuumio/miniconda3
 
 %post
