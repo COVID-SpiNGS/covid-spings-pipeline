@@ -10,8 +10,7 @@ From: continuumio/miniconda3
     conda update -n base -c defaults conda
     conda init bash
     conda info | grep -i 'base environment'
-    conda create --name nanosim python=3.7 --yes
-    conda activate nanosim && conda install --file fixed_requirements.txt -c conda-forge -c bioconda --yes
+    conda install --file fixed_requirements.txt -c conda-forge -c bioconda --yes
     
     
 
