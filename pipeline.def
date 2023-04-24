@@ -8,6 +8,7 @@ From: continuumio/miniconda3
     apt-get install curl -y
     apt-get install wget -y
     conda update -n base -c defaults conda
+    conda install -c anaconda libgcc-ng
     conda init bash
     conda info | grep -i 'base environment'
     conda install --file requirements.txt -c conda-forge -c bioconda --yes
