@@ -5,12 +5,13 @@ From: continuumio/anaconda3
     rm -rf pipelinex
     mkdir ./pipelinex
     apt update
-    apt-get install build-essential python3.6-dev python-numpy python-matplotlib python-pysam python-htseq
+    apt install python3-pip
+    pip install HTSeq
     conda update -n base -c defaults conda
     conda install -c anaconda libgcc-ng
     conda init bash
     conda info | grep -i 'base environment'
-    conda install --file requirements.txt -c conda-forge -c bioconda --yes
+    
     
     
 
