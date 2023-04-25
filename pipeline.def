@@ -5,8 +5,8 @@ From: continuumio/anaconda3
     rm -rf pipelinex
     mkdir ./pipelinex
     apt update
-    apt install python3-pip --y
-    pip install HTSeq --y
+    apt install python3-pip --yes
+    pip install HTSeq
     conda update -n base -c defaults conda
     conda install -c anaconda libgcc-ng
     conda init bash
