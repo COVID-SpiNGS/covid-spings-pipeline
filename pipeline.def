@@ -5,8 +5,6 @@ From: continuumio/anaconda3
     rm -rf pipelinex
     mkdir ./pipelinex
     apt update
-    apt-get install curl -y
-    apt-get install wget -y
     conda update -n base -c defaults conda
     conda install -c anaconda libgcc-ng
     conda init bash
