@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: continuumio/miniconda3
+From: continuumio/anaconda3
 
 %post
     rm -rf pipelinex
@@ -11,7 +11,7 @@ From: continuumio/miniconda3
     conda install -c anaconda libgcc-ng
     conda init bash
     conda info | grep -i 'base environment'
-    conda install --file requirements.txt -c bioconda --yes
+    conda install --file requirements.txt -c conda-forge -c bioconda --yes
     
     
 
