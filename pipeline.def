@@ -8,9 +8,6 @@ From: juanca/default/anaconda:latest
     uname -a
     conda update -n base -c defaults conda
     conda info | grep -i 'base environment'
-    conda create --name nanosim python=3.7 --yes
-    conda init bash
-    conda activate nanosim
     conda install -c bioconda samtools
     
     
