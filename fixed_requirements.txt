@@ -3,15 +3,9 @@ genometools-genometools
 #conda
 last
 minimap2
-
 numpy-base
 pybedtools
-
 samtools
-
-
-
-
 #pip
 htseq
 pysam
@@ -20,6 +14,5 @@ scipy
 numpy
 joblib
 six
-
 #aptget
-apt-get install genometools
+genometools
