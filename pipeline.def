@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: continuumio/anaconda3
+From: pnnlmiscscripts/anaconda
 
 %post
     rm -rf pipelinex
