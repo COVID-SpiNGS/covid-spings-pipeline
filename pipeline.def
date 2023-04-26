@@ -1,5 +1,5 @@
 Bootstrap: library
-From: anaconda:latest
+From: ubuntu:jammy/22.04/latest
 
 %post
     rm -rf pipelinex
