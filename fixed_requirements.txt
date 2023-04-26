@@ -1,11 +1,11 @@
 genometools-genometools
 
 #conda
-last
-minimap2
-numpy-base
+#last
+#minimap2
+#numpy-base
 pybedtools
-samtools
+#samtools
 #pip
 htseq
 pysam
