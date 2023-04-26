@@ -1,5 +1,7 @@
 Bootstrap: library
-From: ubuntu:jammy
+From: juanca/default/anaconda:latest
+
+
 %post
     rm -rf pipelinex
     mkdir ./pipelinex
