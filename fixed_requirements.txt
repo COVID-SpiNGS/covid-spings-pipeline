@@ -1,4 +1,25 @@
+genometools-genometools
+
+#conda
+last
+minimap2
+
+numpy-base
+pybedtools
+
+samtools
+
+
+
+
+#pip
+htseq
+pysam
 scikit-learn
 scipy
-genometools-genometools
-htseq
+numpy
+joblib
+six
+
+#aptget
+apt-get install genometools

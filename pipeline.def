@@ -6,11 +6,13 @@ From: juanca/default/anaconda:latest
     rm -rf pipelinex
     mkdir ./pipelinex
     uname -a
+    apt-get install python3-pip
     conda update -n base -c defaults conda
-    conda install -c anaconda libgcc-ng
-    conda init bash
     conda info | grep -i 'base environment'
-    conda install --file requirements.txt -c conda-forge -c bioconda --yes
+    conda create --name nanosim python=3.7 --yes
+    conda init bash
+    conda activate nanosim
+    conda install -c bioconda samtools
     
     
 
