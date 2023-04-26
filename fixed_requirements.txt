@@ -1,2 +1,2 @@
-pybedtools
-pysam
+scikit-learn
+scipy
