@@ -1,6 +1,5 @@
 Bootstrap: library
-From: ubuntu:jammy/22.04/latest
-
+From: ubuntu:jammy
 %post
     rm -rf pipelinex
     mkdir ./pipelinex
