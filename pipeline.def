@@ -5,6 +5,7 @@ From: juanca/default/anaconda:latest
 %post
     rm -rf pipelinex
     mkdir ./pipelinex
+    uname -a
     apt update
     apt install python3-pip --yes
     pip install HTSeq
