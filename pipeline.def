@@ -6,7 +6,6 @@ From: juanca/default/anaconda:latest
     rm -rf pipelinex
     mkdir ./pipelinex
     uname -a
-    apt-get install python3-pip
     conda update -n base -c defaults conda
     conda info | grep -i 'base environment'
     conda create --name nanosim python=3.7 --yes
