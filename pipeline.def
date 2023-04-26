@@ -1,5 +1,5 @@
-Bootstrap: docker
-From: pnnlmiscscripts/anaconda
+Bootstrap: library
+From: anaconda:latest
 
 %post
     rm -rf pipelinex
