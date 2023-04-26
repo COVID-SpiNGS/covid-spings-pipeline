@@ -3,6 +3,7 @@
 # platform: linux-64
 minimap2
 numpy
+pybedtools
 pysam
 samtools
 scikit-learn
