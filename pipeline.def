@@ -8,11 +8,21 @@ From: juanca/default/anaconda:latest
     uname -a
     conda update -n base -c defaults conda
     conda info | grep -i 'base environment'
-    conda install -c bioconda samtools
+    
+    conda install -c anaconda numpy-base
+    conda install -c conda-forge six
+    conda install -c conda-forge numpy
+    conda install -c conda-forge scipy
+    conda install -c conda-forge scikit-learn
+    conda install -c conda-forge joblib
+    
     conda install -c bioconda last
     conda install -c bioconda minimap2
     conda install -c bioconda pybedtools
-    conda install -c anaconda numpy-base
+    conda install -c bioconda genometools-genometools
+    conda install -c bioconda htseq
+    conda install -c bioconda pysam
+    conda install -c bioconda samtools
     
 
     
