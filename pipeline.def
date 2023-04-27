@@ -8,6 +8,8 @@ From: juanca/default/anaconda:latest
     uname -a
     python -m pip --version
     pip install pybedtools
+    pip install HTSeq
+    pip install genometools
     conda update -n base -c defaults conda
     conda update -n base -c conda-forge conda
     conda info | grep -i 'base environment'
@@ -21,10 +23,9 @@ From: juanca/default/anaconda:latest
     
     #conda install -c bioconda last
     #conda install -c bioconda minimap2
-    ##conda install --channel conda-forge --channel bioconda bedtools htslib -v
-    ##conda install --channel conda-forge --channel bioconda pybedtools -v
+    ###conda install --channel conda-forge --channel bioconda pybedtools -v
     ##conda install -c bioconda genometools-genometools
-    ##conda install -c bioconda htseq
+    ###conda install -c bioconda htseq
     #conda install -c bioconda pysam
     #conda install -c bioconda samtools
     
