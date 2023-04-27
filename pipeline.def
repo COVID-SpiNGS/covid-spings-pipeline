@@ -22,7 +22,7 @@ From: juanca/default/anaconda:latest
     #conda install --channel conda-forge --channel bioconda bedtools htslib -v
     #conda install --channel conda-forge --channel bioconda pybedtools -v
     #conda install -c bioconda genometools-genometools
-    conda install -c bioconda htseq
+    #conda install -c bioconda htseq
     conda install -c bioconda pysam
     conda install -c bioconda samtools
     
