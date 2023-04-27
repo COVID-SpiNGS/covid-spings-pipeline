@@ -7,6 +7,7 @@ From: juanca/default/anaconda:latest
     mkdir ./pipelinex
     uname -a
     conda update -n base -c defaults conda
+    conda update -n base -c conda-forge conda
     conda info | grep -i 'base environment'
     
     conda install -c anaconda numpy-base
@@ -18,7 +19,7 @@ From: juanca/default/anaconda:latest
     
     conda install -c bioconda last
     conda install -c bioconda minimap2
-    conda install -c bioconda pybedtools
+    
     conda install -c bioconda genometools-genometools
     conda install -c bioconda htseq
     conda install -c bioconda pysam

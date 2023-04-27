@@ -4,7 +4,7 @@ genometools-genometools
 #last
 #minimap2
 #numpy-base
-#pybedtools
+pybedtools
 #samtools
 
 #htseq
