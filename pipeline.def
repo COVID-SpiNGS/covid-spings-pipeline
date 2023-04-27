@@ -19,8 +19,8 @@ From: juanca/default/anaconda:latest
     
     conda install -c bioconda last
     conda install -c bioconda minimap2
-    
-    conda install -c bioconda genometools-genometools
+    conda install -c bioconda pybedtools
+    #conda install -c bioconda genometools-genometools
     conda install -c bioconda htseq
     conda install -c bioconda pysam
     conda install -c bioconda samtools
