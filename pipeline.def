@@ -12,21 +12,21 @@ From: juanca/default/anaconda:latest
     conda update -n base -c conda-forge conda
     conda info | grep -i 'base environment'
     
-    conda install -c anaconda numpy-base
-    conda install -c conda-forge six
-    conda install -c conda-forge numpy
-    conda install -c conda-forge scipy
-    conda install -c conda-forge scikit-learn
-    conda install -c conda-forge joblib
+    #conda install -c anaconda numpy-base
+    #conda install -c conda-forge six
+    #conda install -c conda-forge numpy
+    #conda install -c conda-forge scipy
+    #conda install -c conda-forge scikit-learn
+    #conda install -c conda-forge joblib
     
-    conda install -c bioconda last
-    conda install -c bioconda minimap2
-    #conda install --channel conda-forge --channel bioconda bedtools htslib -v
-    #conda install --channel conda-forge --channel bioconda pybedtools -v
-    #conda install -c bioconda genometools-genometools
+    #conda install -c bioconda last
+    #conda install -c bioconda minimap2
+    ##conda install --channel conda-forge --channel bioconda bedtools htslib -v
+    ##conda install --channel conda-forge --channel bioconda pybedtools -v
+    ##conda install -c bioconda genometools-genometools
     ##conda install -c bioconda htseq
-    conda install -c bioconda pysam
-    conda install -c bioconda samtools
+    #conda install -c bioconda pysam
+    #conda install -c bioconda samtools
     
 
     
