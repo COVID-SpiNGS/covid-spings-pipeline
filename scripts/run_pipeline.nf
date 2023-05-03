@@ -2,11 +2,6 @@
 
 nextflow.enable.dsl = 2
 
-//include { miniMap2 } from './modules/alignment/miniMap2';
-//include { samtoolsView; samtoolsSort; samtoolsIndex } from './modules/utils/samtools';
-//include { bcftoolsView; bcftoolsView as gBcftoolsView } from './modules/utils/bcftools';
-//include { pepperMarginDeepVariantNoPublish } from '/modules/variantCalling/pepperMarginDeepVariant';
-
 
 process setup_sim {
   script:
