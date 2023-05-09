@@ -4,6 +4,7 @@ nxf-tmp.*
 *.log
 *.sif
 
+nextflow
 
 /.nextflow
 /.splitted
