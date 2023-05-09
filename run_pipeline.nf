@@ -3,12 +3,10 @@
 nextflow.enable.dsl = 2
 
 
-process setup_sim {
-  script:
-  """
-  ./nextflow run setup_sim.nf
-  """
-}
+include { miniMap2 } from './modules/variantCalling/liveVariantCaller';
+
+nextflow.enable.dsl = 2
+
 
 process test {
   output:
