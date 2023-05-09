@@ -35,6 +35,3 @@ process run_variant_caller {
   """
 }
 
-workflow {
-  create_dirs | run_watcher | run_variant_caller
-}
