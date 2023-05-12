@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-./nextflow run runSimulation -with-docker continuumio/anaconda3:latest
+./nextflow run runSimulation.nf --outputDir "/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline"
