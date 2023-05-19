@@ -1,13 +1,16 @@
+nextflow.enable.dsl = 2
+
+
 process setupDirs {
-  
+
   input:
    path outputDir
 
   shell:
   """
-  rm -rf $outputDir/data && mkdir $outputDir/data
-  rm -rf $outputDir/data/human_genome && mkdir $outputDir/data/human_genome
-  mkdir -p $outputDir/data/covid
+  rm -rf $projectDir/data && mkdir $projectDir/data
+  rm -rf $projectDir/data/human_genome && mkdir $projectDir/data/human_genome
+  mkdir -p $projectDir/data/covid
   """
 }
 
@@ -23,8 +26,8 @@ process downloadHumanGenome {
       if $i != 0:
       then
         echo $i
-        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr$i.fa.gz" -P "$outputDir/data/human_genome"
-        gzip -d "$outputDir/data/humanGenome/chr$i.fa.gz"
+        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr$i.fa.gz" -P "$projectDir/data/human_genome"
+        gzip -d "$projectDir/data/humanGenome/chr$i.fa.gz"
       fi
     done
   '''
@@ -37,7 +40,7 @@ process downloadCovid {
 
   shell:
   '''
-  wget "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=OX463106&rettype=fasta&retmode=text" -O "$outputDir/covid_ref.fasta"
+  wget "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=OX463106&rettype=fasta&retmode=text" -O "$projectDir/covid_ref.fasta"
   '''
 }
 
@@ -53,9 +56,10 @@ process downloadCovid {
   mv ./data/covid/5ede595708aad3013143c7f3?action=download\&direct\&version=3 ./data/covid/SARS-CoV-2_MSA_file1.fasta
   '''
 }
-**/
+
 
 process setupNanoSim {
+  container = containerOptions
   
   shell:
   """
@@ -65,30 +69,34 @@ process setupNanoSim {
   cd .. 
   """
 }
-
+**/
 
 process runNanoSimTrain {
 
+  conda 'nanosim'
+
   input:
-   path outputDir
+  path projectDir
+  //path outputDir
 
   script:
   """
-  pwd
-  rm -rf $outputDir/NanoSim_output/ && mkdir $outputDir/NanoSim_output/ && cd $outputDir/NanoSim_output
+  #rm -rf $projectDir/NanoSim_output/ && mkdir $projectDir/NanoSim_output/ && cd $projectDir/NanoSim_output
   #Train
-  /NanoSim/src/read_analysis.py genome -i $outputDir/data/covid/SP-2_R1.fastq -rg $outputDir/data/covid/SARS-CoV-2_MSA_file1.fasta
+  $projectDir/modules/simulation/NanoSim/src/read_analysis.py genome -i $projectDir/data/covid/SP-2_R1.fastq -rg $projectDir/data/covid/SARS-CoV-2_MSA_file1.fasta
   """
 }
 
 process simulate {
+  conda 'nanosim'
 
   input:
-   path outputDir
+  path projectDir
+  //path outputDir
   
   script:
   """
-  /NanoSim/src/simulator.py metagenome -gl $outputDir/config_files/metagenome_covid_human.tsv -dl $outputDir/config_files/dna_type_list.tsv -a $outputDir/config_files/abundance_covid.tsv
+  $projectDir/modules/simulation/NanoSim/src/simulator.py metagenome -gl $projectDir/modules/simulation/config_files/metagenome_covid_human.tsv -dl $projectDir/modules/simulation/config_files/dna_type_list.tsv -a $projectDir/config_files/abundance_covid.tsv
   """
 }
 
