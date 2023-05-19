@@ -74,9 +74,10 @@ process runNanoSimTrain {
 
   script:
   """
+  pwd
   rm -rf $outputDir/NanoSim_output/ && mkdir $outputDir/NanoSim_output/ && cd $outputDir/NanoSim_output
   #Train
-  ./NanoSim/src/read_analysis.py genome -i $outputDir/data/covid/SP-2_R1.fastq -rg $outputDir/data/covid/SARS-CoV-2_MSA_file1.fasta
+  /NanoSim/src/read_analysis.py genome -i $outputDir/data/covid/SP-2_R1.fastq -rg $outputDir/data/covid/SARS-CoV-2_MSA_file1.fasta
   """
 }
 
@@ -87,7 +88,7 @@ process simulate {
   
   script:
   """
-  ./NanoSim/src/simulator.py metagenome -gl $outputDir/config_files/metagenome_covid_human.tsv -dl $outputDir/config_files/dna_type_list.tsv -a $outputDir/config_files/abundance_covid.tsv
+  /NanoSim/src/simulator.py metagenome -gl $outputDir/config_files/metagenome_covid_human.tsv -dl $outputDir/config_files/dna_type_list.tsv -a $outputDir/config_files/abundance_covid.tsv
   """
 }
 

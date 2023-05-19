@@ -10,10 +10,10 @@ workflow train {
     main:
         if (params.outputDir)
         //outputDir = (params.outputDir == null) ? params.outputDir : ""
-          setupDirs(params.outputDir)
-          setupNanoSim()
-          downloadHumanGenome(params.outputDir) 
-          downloadCovid(params.outputDir)
+          //setupDirs(params.outputDir)
+          //setupNanoSim()
+          //downloadHumanGenome(params.outputDir) 
+          //downloadCovid(params.outputDir)
           runNanoSimTrain(params.outputDir)
 }
 
