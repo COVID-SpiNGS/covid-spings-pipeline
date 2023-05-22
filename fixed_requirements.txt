@@ -1,4 +1,4 @@
-#genometools-genometools
+genometools-genometools
 
 
 #last

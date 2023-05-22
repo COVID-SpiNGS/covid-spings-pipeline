@@ -1,0 +1,18 @@
+name: nanosim_env
+channels: 
+  - bioconda
+  - conda-forge
+dependencies:
+  - genometools-genometools
+  - last
+  - minimap2
+  - numpy-base
+  - pybedtools
+  - samtools
+  - htseq
+  - pysam
+  - scikit-learn
+  - scipy
+  - numpy
+  - joblib
+  - six

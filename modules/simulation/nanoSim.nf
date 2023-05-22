@@ -73,7 +73,21 @@ process setupNanoSim {
 
 process runNanoSimTrain {
 
-  conda 'nanosim'
+  conda 'nanosim_env.yml'
+
+  input:
+  path projectDir
+  //path outputDir
+
+  script:
+  """
+  ls -la $projectDir
+  """
+}
+
+process runNanoSimTrain2 {
+
+  conda 'nanosim_env.yml'
 
   input:
   path projectDir
