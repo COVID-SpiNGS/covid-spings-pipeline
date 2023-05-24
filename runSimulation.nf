@@ -14,14 +14,13 @@ workflow train {
         p = workflow.projectDir
         //outputDir = (params.output != null) ? params.output : workflow.projectDir
         //projectDir = "bla"
-          //setupDirs(params.outputDir)
-          //setupNanoSim()
-          //downloadHumanGenome(params.outputDir) 
-          //downloadCovid(params.outputDir)workflow.projectDir
-        runNanoSimTrain(p)
-          //     xyz(workflow.projectDir, params.outputDir)
-          //
-        println "Output: $p"
+        //setupDirs(params.down)
+        //downloadHumanGenome(p) 
+        downloadCovid(params.downloadDir)
+        //runNanoSimTrain(p)
+        println "Input: $params.inputDir"
+
+        println "Output: $params.outputDir"
         
 }
 
