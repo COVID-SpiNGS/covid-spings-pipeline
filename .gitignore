@@ -11,7 +11,9 @@ nextflow
 /output
 /input
 /work
+/logs
 
+bla/
 # Compiled class file
 *.class
 
