@@ -8,7 +8,7 @@ include { miniMap2 } from './modules/variantCalling/liveVariantCaller';
 nextflow.enable.dsl = 2
 
 
-process test {
+process runWatcher {
   output:
     stdout
   script:
@@ -17,7 +17,7 @@ process test {
   """
 }
 
-process fp1 {
+process runVariantCaller {
 
   script:
   """
@@ -26,6 +26,8 @@ process fp1 {
   """
 }
 
+
+/**  
 process fp2 {
   script:
   """
@@ -33,8 +35,13 @@ process fp2 {
   ./nextflow run fp2.nf
   """
 }
+**/
+
 
 workflow {
-  result = test()
-  result.view { "Result: ${it}" }
+  runWatcher()
+  runVariantCaller()
+
+  //result = test()
+  //result.view { "Result: ${it}" }
 }
