@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HUMAN_GENOME_PATH=$1/humanGenome
+HUMAN_GENOME_PATH=$1/human_genome
 COVID_PATH=$1/covid
 
 if [ -z "$(ls -A $HUMAN_GENOME_PATH)" ]; then

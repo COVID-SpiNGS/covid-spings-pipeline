@@ -1,34 +1,21 @@
 nextflow.enable.dsl = 2
 
+process downloadHumanGenome {
 
-process myProcess {
+    storeDir "${params.baseDir}/data/human_genome"
 
     input:
     val i
 
+    output:
+    path "chr${i}.fa", emit: file
+
     """
-    wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr"$i".fa.gz -P ./data/human_genome
-    gzip -d ./data/human_genome/chr"$i".fa.gz
+    wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr"$i".fa.gz -P ${params.baseDir}/data/human_genome
+    gzip -d ${params.baseDir}/data/human_genome/chr"$i".fa.gz
     """
 }
 
-
-
-process downloadHumanGenome {
-
-  shell:
-  '''
-  for i in {1..22}
-    do
-      if $i != 0:
-      then
-        echo $i
-        wget "http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr$i.fa.gz" -P ./data/human_genome
-        gzip -d "./data/humanGenome/chr$i.fa.gz"
-      fi
-    done
-  '''
-}
 
 process setupDirs {
 
