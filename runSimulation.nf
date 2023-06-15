@@ -2,19 +2,23 @@
 
 nextflow.enable.dsl = 2
 
-include {setupDirs; downloadHumanGenome; runNanoSimTrain; simulate} from './modules/simulation/nanoSim';
+include {setupDataDir; setupCovidRefDir; setupHumanGenomeRefDir; downloadCovid; downloadHumanGenome; runNanoSimTrain; simulate} from './modules/simulation/nanoSim';
 
+
+workflow setupDirs {
+    main:
+        setupDataDir()
+        setupHumanGenomeRefDir()
+        setupCovidRefDir()
+}
 
 workflow train {
     
     main:
-        setupDirs()
+        //setupDirs()
         values = Channel.from(1..22)
-        downloadHumanGenome(values)
-        //if (params.output && !params.output.equals(workflow.projectDir))
-         //o = params.output
-        //outputDir = (params.output != null) ? params.output : workflow.projectDir
-        //projectDir = "bla"
+        //downloadHumanGenome(values)
+        //downloadCovid()
         
         //runNanoSimTrain()
         println "Input: $params.inputDir"
@@ -24,7 +28,8 @@ workflow train {
 }
 
 workflow {
-    train() 
+    setupDirs()
+    //train() 
     //simulate()
 }
 
