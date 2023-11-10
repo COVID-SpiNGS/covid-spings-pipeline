@@ -45,7 +45,10 @@ nextflow
 .nextflow/
 .nextflow.log.*
 
+version?current=23.10.0.*
+
 NanoSim_output/*
+NanoSim_training/*
 output/
 data/
 humanGenome/*
