@@ -4,7 +4,7 @@ nxf-tmp.*
 *.sif
 
 nextflow
-
+reference_metagenome.fasta
 
 /.nextflow
 /.splitted
