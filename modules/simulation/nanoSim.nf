@@ -30,6 +30,7 @@ process downloadCovid {
     """
 }
 
+
 process createDirs {
 
   input:
@@ -43,14 +44,13 @@ process createDirs {
   """
 }
 
+
 process runNanoSimTrain {
   conda 'nanosim_env.yml'
 
   script:
   """
-  #rm -rf ${params.nanoSimOutputDir} && mkdir ${params.nanoSimOutputDir} && cd ${params.nanoSimOutputDir}
-  #Train -rg ${params.covidRefDir}/covid_ref.fasta
-  ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv 
+  ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -o ${params.nanoSimOutputDir}/pipeline_training
   """
 }
 

@@ -28,10 +28,6 @@ workflow train {
         
 }
 
-/**
-ski/CovidSpiNGS/ProcessedData/ahinzer/concentration_predictionsftp://ahinzer@pumpkin11.f4.htw-berlin.de/data/ldap/pdabrowski/CovidSpiNGS/ProcessedData/ahinzer/concentration_predictionsftp://ahinzer@pumpkin11.f4.htw-berlin.de/data/ldap/pdabrowski/CovidSpiNGS/ProcessedData/ahinzer/concentration_prediction
-
-**/
 workflow {
     setupDirs()
     downloadData()
