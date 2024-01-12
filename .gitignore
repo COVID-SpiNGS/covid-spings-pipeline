@@ -5,7 +5,10 @@ nxf-tmp.*
 
 version?current=23.10.0
 version?current=23.10.0.*
+*.sif
 
+nextflow
+reference_metagenome.fasta
 nextflow
 reference_metagenome.fasta
 
@@ -14,6 +17,9 @@ reference_metagenome.fasta
 /output
 /input
 /work
+/logs
+
+bla/
 /logs
 
 bla/
@@ -50,7 +56,10 @@ nextflow
 
 version?current=23.10.0.*
 
+version?current=23.10.0.*
+
 NanoSim_output/*
+NanoSim_training/*
 NanoSim_training/*
 output/
 data/
