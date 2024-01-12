@@ -50,7 +50,7 @@ process runNanoSimTrain {
 
   script:
   """
-  ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -o ${params.nanoSimOutputDir}/pipeline_training
+  ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -o ${params.nanoSimOutputDir}/pipeline_training -t 8
   """
 }
 
