@@ -1,9 +1,9 @@
 #! /usr/bin/env nextflow
 nextflow.preview.recursion = true
 
-include { miniMap2 } from './modules/alignment/miniMap2';
-include { samtoolsView; samtoolsMerge; samtoolsSort; samtoolsIndex } from './modules/utils/samtools';
-include { pepperMarginDeepVariant } from './modules/variantCalling/pepperMarginDeepVariant';
+include { miniMap2 } from '../modules/alignment/miniMap2';
+include { samtoolsView; samtoolsMerge; samtoolsSort; samtoolsIndex } from '../modules/utils/samtools';
+include { pepperMarginDeepVariant } from '../modules/variantCalling/pepperMarginDeepVariant';
 
 def helpMessage() {
   log.info """

@@ -1,0 +1,15 @@
+name: nanosim_env
+dependencies:
+  - bioconda::genometools-genometools
+  - bioconda::last
+  - bioconda::minimap2
+  - anaconda::numpy-base
+  - bioconda::pybedtools
+  - bioconda::samtools
+  - bioconda::htseq
+  - bioconda::pysam
+  - conda-forge::scikit-learn
+  - conda-forge::scipy
+  - conda-forge::numpy
+  - conda-forge::joblib
+  - conda-forge::six

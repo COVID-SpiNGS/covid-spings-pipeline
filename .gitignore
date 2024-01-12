@@ -1,15 +1,19 @@
-<<<<<<< HEAD
 .nextflow.log*
 nxf-tmp.*
 *.log
+*.sif
 
+nextflow
+reference_metagenome.fasta
 
 /.nextflow
 /.splitted
 /output
 /input
 /work
-=======
+/logs
+
+bla/
 # Compiled class file
 *.class
 
@@ -41,10 +45,12 @@ nextflow
 .nextflow/
 .nextflow.log.*
 
+version?current=23.10.0.*
+
 NanoSim_output/*
+NanoSim_training/*
 output/
 data/
 humanGenome/*
 covidReference/*
 training*
->>>>>>> SetupSimulatorScript

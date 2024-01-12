@@ -1,16 +1,18 @@
-# This file may be used to create an environment using:
-# $ conda create --name <env> --file <this file>
-# platform: linux-64
 genometools-genometools
-htseq
-joblib
-last
-minimap2
-numpy
-numpy-base
-pybedtools
-pysam
-samtools
-scikit-learn
-scipy
-six
+
+
+#last
+#minimap2
+#numpy-base
+pybedtools=0.8.1
+#samtools
+
+#htseq
+#pysam
+#scikit-learn
+#scipy
+#numpy
+#joblib
+#six
+
+#genometools
