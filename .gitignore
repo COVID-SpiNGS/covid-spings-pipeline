@@ -3,8 +3,11 @@ nxf-tmp.*
 *.log
 *.sif
 
+*.sif
+
 nextflow
 reference_metagenome.fasta
+
 
 /.nextflow
 /.splitted
@@ -12,6 +15,8 @@ reference_metagenome.fasta
 /input
 /work
 /logs
+/src/modules/simulation/NanoSim/pre-trained_models/
+/src/modules/simulation/NanoSim/sample_config_file
 
 bla/
 # Compiled class file
@@ -45,10 +50,11 @@ nextflow
 .nextflow/
 .nextflow.log.*
 
+version?current=23.10.0
 version?current=23.10.0.*
 
 NanoSim_output/*
-NanoSim_training/*
+NanoSim_training/
 output/
 data/
 humanGenome/*
