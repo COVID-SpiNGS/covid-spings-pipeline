@@ -16,6 +16,7 @@ reference_metagenome.fasta
 /work
 /logs
 /src/modules/simulation/NanoSim/pre-trained_models/
+/src/modules/simulation/NanoSim/sample_config_file
 
 bla/
 # Compiled class file
