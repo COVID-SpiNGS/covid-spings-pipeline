@@ -2,7 +2,7 @@
 
 nextflow.enable.dsl = 2
 
-include {createDirs; downloadCovid; downloadHumanGenome; runNanoSimTrain; simulate} from './modules/simulation/nanoSim';
+include {createDirs; downloadCovid; downloadHumanGenome; runNanoSimTrain; simulate} from './src/modules/simulation/nanoSim';
 
 
 workflow setupDirs {
