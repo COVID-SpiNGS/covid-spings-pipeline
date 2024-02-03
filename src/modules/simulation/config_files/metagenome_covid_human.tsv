@@ -1,11 +1,11 @@
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr3.fa
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr5.fa
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr7.fa
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr9.fa
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr11.fa
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr13.fa
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr15.fa
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr17.fa
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr19.fa
-Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome/chr21.fa
-Covid	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/covid/covid_ref.fasta
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr3.fa
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr5.fa
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr7.fa
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr9.fa
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr11.fa
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr13.fa
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr15.fa
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr17.fa
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr19.fa
+Human genome	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/human_genome//chr21.fa
+Covid	/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/covid//covid_ref.fasta

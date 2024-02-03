@@ -16,6 +16,32 @@ process downloadHumanGenome {
     """
 }
 
+process prepareMetagenomeFile {
+
+  storeDir "${params.nanoSimConfigDir}"
+
+  output:
+    path "metagenome_covid_humann.tsv", emit: file
+
+
+  """
+  echo -e \"Human genome\t${params.humanGenomeRefDir}/chr3.fa
+Human genome\t${params.humanGenomeRefDir}/chr5.fa
+Human genome\t${params.humanGenomeRefDir}/chr7.fa
+Human genome\t${params.humanGenomeRefDir}/chr9.fa
+Human genome\t${params.humanGenomeRefDir}/chr11.fa
+Human genome\t${params.humanGenomeRefDir}/chr13.fa
+Human genome\t${params.humanGenomeRefDir}/chr15.fa
+Human genome\t${params.humanGenomeRefDir}/chr17.fa
+Human genome\t${params.humanGenomeRefDir}/chr19.fa
+Human genome\t${params.humanGenomeRefDir}/chr21.fa
+Covid\t${params.covidRefDir}/covid_ref.fasta\" >> ${params.nanoSimConfigDir}/metagenome_covid_humann.tsv
+
+  
+  """
+
+}
+
 process downloadCovid {
 
     storeDir "${params.covidRefDir}"
@@ -50,7 +76,7 @@ process runNanoSimTrain {
 
   script:
   """
-  ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -o ${params.nanoSimOutputDir}/pipeline_training -t 8
+  ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -o ${params.nanoSimOutputDir}/pipeline_training -t 4
   """
 }
 
