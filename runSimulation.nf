@@ -30,6 +30,12 @@ workflow train {
         
 }
 
+/**
+workflow simulate { 
+    take:
+        simulate(train.out)
+}
+**/
 workflow {
     setupDirs()
     downloadData()
@@ -37,9 +43,4 @@ workflow {
     //simulate()
 }
 
-/**
-workflow simulate { 
-    take:
-        simulate(train.out)
-}
-**/
+
