@@ -14,11 +14,12 @@ reference_metagenome.fasta
 /output
 /input
 /work
-/logs
 /src/modules/simulation/NanoSim/pre-trained_models/
 /src/modules/simulation/NanoSim/sample_config_file
+/src/modules/simulation/config_files/metagenome_covid_human.tsv
 
-bla/
+
+
 # Compiled class file
 *.class
 
