@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#./download_data.sh "$PWD/data"
-nextflow run runSimulation.nf
-#-log /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/logs
+nextflow -log ./logs/nextflow.log run main.nf
 
 #nextflow run runPipeline.nf

@@ -72,9 +72,11 @@ process createDirs {
 process runNanoSimTrain {
   conda 'nanosim_env.yml'
 
+  storeDir "${params.covidRefDir}"
+
   script:
   """
-  ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -o ${params.nanoSimOutputDir}/pipeline_training -t 4
+  ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -o ${params.nanoSimOutputDir}/pipeline_training -t ${params.threads}
   """
 }
 
@@ -83,6 +85,6 @@ process simulate {
 
   script:
   """
-  ${params.nanoSimScriptsDir}/simulator.py metagenome -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -dl ${params.nanoSimConfigDir}/dna_type_list.tsv -a ${params.nanoSimConfigDir}/abundance_covid.tsv
+  ${params.nanoSimScriptsDir}/simulator.py metagenome -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -dl ${params.nanoSimConfigDir}/dna_type_list.tsv -a ${params.nanoSimConfigDir}/abundance_covid.tsv -t ${params.threads}
   """
 }
