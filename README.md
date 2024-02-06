@@ -18,10 +18,15 @@ git subtree push --prefix variant_caller git@github.com:COVID-SpiNGS/covid-sping
 For more explanations for git subtree and the corresponding commands, refer to this [nice gist](https://gist.github.com/SKempin/b7857a6ff6bddb05717cc17a44091202). Also, if you're wondering about the difference between submodules and subtrees, read [this](https://gitprotect.io/blog/managing-git-projects-git-subtree-vs-submodule/).
 
 
-BTW: Same applies to the NanoSim tool.
+BTW: Same applies to the NanoSim tool:
 
 
 ```
 git subtree pull --prefix NanoSim git@github.com:bcgsc/NanoSim.git master --squash
 
 ```
+
+
+## How to use
+
+Run the pipeline with ```nextflow -log ./logs/nextflow.log run main.nf```
