@@ -1,6 +1,7 @@
 .nextflow.log*
 nxf-tmp.*
 *.log
+*.log.*
 *.sif
 
 *.sif
