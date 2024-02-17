@@ -1,0 +1,202 @@
+Feb-13 23:09:32.531 [main] DEBUG nextflow.cli.Launcher - $> nextflow -log ./logs/nextflow.log run main.nf
+Feb-13 23:09:32.684 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.0
+Feb-13 23:09:32.699 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/vickylara/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.2,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.0
+Feb-13 23:09:32.708 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Feb-13 23:09:32.708 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Feb-13 23:09:32.711 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Feb-13 23:09:32.718 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Feb-13 23:09:32.734 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/nextflow.config
+Feb-13 23:09:32.736 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/nextflow.config
+Feb-13 23:09:32.756 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Feb-13 23:09:33.201 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declararion
+Feb-13 23:09:33.212 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [tender_edison] DSL2 - revision: 40f1dcb5f3
+Feb-13 23:09:33.213 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Feb-13 23:09:33.213 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Feb-13 23:09:33.220 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/vickylara/.nextflow/secrets/store.json
+Feb-13 23:09:33.223 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@75d4a80f] - activable => nextflow.secret.LocalSecretsProvider@75d4a80f
+Feb-13 23:09:33.265 [main] DEBUG nextflow.Session - Session UUID: a3d0bf5c-3a18-444c-9a73-4a57fb2f9b2b
+Feb-13 23:09:33.265 [main] DEBUG nextflow.Session - Run name: tender_edison
+Feb-13 23:09:33.265 [main] DEBUG nextflow.Session - Executor pool size: 8
+Feb-13 23:09:33.271 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Feb-13 23:09:33.275 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Feb-13 23:09:33.291 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.10.0 build 5889
+  Created: 15-10-2023 15:07 UTC (17:07 CEST)
+  System: Linux 6.5.0-17-generic
+  Runtime: Groovy 3.0.19 on OpenJDK 64-Bit Server VM 18.0.2-ea+9-Ubuntu-222.04
+  Encoding: UTF-8 (UTF-8)
+  Process: 7140@ubuntu22 [127.0.1.1]
+  CPUs: 8 - Mem: 31.1 GB (18.9 GB) - Swap: 2 GB (2 GB)
+Feb-13 23:09:33.306 [main] DEBUG nextflow.Session - Work-dir: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/work [ext2/ext3]
+Feb-13 23:09:33.306 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/bin
+Feb-13 23:09:33.314 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Feb-13 23:09:33.321 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Feb-13 23:09:33.341 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Feb-13 23:09:33.348 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Feb-13 23:09:33.412 [main] DEBUG nextflow.Session - Session start
+Feb-13 23:09:33.574 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Feb-13 23:09:33.811 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Feb-13 23:09:33.811 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Feb-13 23:09:33.819 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Feb-13 23:09:33.825 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=12 GB; capacity=16; pollInterval=100ms; dumpInterval=5m
+Feb-13 23:09:33.827 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Feb-13 23:09:33.897 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Feb-13 23:09:33.897 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Feb-13 23:09:33.901 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Feb-13 23:09:33.902 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Feb-13 23:09:33.904 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Feb-13 23:09:33.904 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Feb-13 23:09:33.907 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Feb-13 23:09:33.907 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Feb-13 23:09:33.910 [main] INFO  nextflow.script.BaseScript - Input: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/../data/covid-spings/input
+Feb-13 23:09:33.911 [main] INFO  nextflow.script.BaseScript - Output: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/../../data/covid-spings/output
+Feb-13 23:09:33.912 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: downloadHumanGenome, prepareMetagenomeFile, downloadCovid, downloadData:downloadHumanGenome, createDirs, runNanoSimTrain, setupDirs:prepareMetagenomeFile, train:runNanoSimTrain, downloadData:downloadCovid, runNanoSimSimulation, setupDirs:createDirs
+Feb-13 23:09:33.912 [main] DEBUG nextflow.Session - Igniting dataflow network (7)
+Feb-13 23:09:33.912 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > setupDirs:createDirs
+Feb-13 23:09:33.913 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > setupDirs:prepareMetagenomeFile
+Feb-13 23:09:33.914 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > downloadData:downloadCovid
+Feb-13 23:09:33.914 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > downloadData:downloadHumanGenome
+Feb-13 23:09:33.914 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > train:runNanoSimTrain
+Feb-13 23:09:33.914 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_a4961ed273dc37d5: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/main.nf
+  Script_7ed35b0e184361b5: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/./src/modules/simulation/nanoSim.nf
+Feb-13 23:09:33.914 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Feb-13 23:09:33.915 [main] DEBUG nextflow.Session - Session await
+Feb-13 23:09:33.969 [Actor Thread 8] WARN  nextflow.processor.TaskProcessor - [train:runNanoSimTrain] StoreDir can only be used when using 'file' outputs
+Feb-13 23:09:33.985 [Actor Thread 17] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (3)
+Feb-13 23:09:33.985 [Actor Thread 13] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (4)
+Feb-13 23:09:33.985 [Actor Thread 9] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > setupDirs:prepareMetagenomeFile
+Feb-13 23:09:33.986 [Actor Thread 15] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (5)
+Feb-13 23:09:33.986 [Actor Thread 10] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadCovid
+Feb-13 23:09:33.986 [Actor Thread 11] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (2)
+Feb-13 23:09:33.986 [Actor Thread 12] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (7)
+Feb-13 23:09:33.986 [Actor Thread 6] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (1)
+Feb-13 23:09:33.986 [Actor Thread 20] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (8)
+Feb-13 23:09:33.987 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (6)
+Feb-13 23:09:33.996 [Actor Thread 15] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (9)
+Feb-13 23:09:33.996 [Actor Thread 3] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (11)
+Feb-13 23:09:33.997 [Actor Thread 6] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (12)
+Feb-13 23:09:33.997 [Actor Thread 13] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (15)
+Feb-13 23:09:33.998 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (16)
+Feb-13 23:09:33.998 [Actor Thread 12] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (13)
+Feb-13 23:09:33.996 [Actor Thread 17] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (10)
+Feb-13 23:09:34.000 [Actor Thread 11] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (22)
+Feb-13 23:09:34.000 [Actor Thread 20] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (14)
+Feb-13 23:09:34.001 [Actor Thread 12] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (17)
+Feb-13 23:09:34.001 [Actor Thread 13] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (20)
+Feb-13 23:09:34.003 [Actor Thread 17] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (18)
+Feb-13 23:09:34.003 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (19)
+Feb-13 23:09:34.009 [Actor Thread 21] INFO  nextflow.processor.TaskProcessor - [skipping] Stored process > downloadData:downloadHumanGenome (21)
+Feb-13 23:09:34.042 [Actor Thread 2] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=nanosim_env.yml; path=/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/work/conda/nanosim-eee2b871667ba513d9a7944164ac635a
+Feb-13 23:09:34.059 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Feb-13 23:09:34.062 [Task submitter] INFO  nextflow.Session - [e5/194197] Submitted process > setupDirs:createDirs (1)
+Feb-13 23:09:34.069 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Feb-13 23:09:34.069 [Task submitter] INFO  nextflow.Session - [e6/effa88] Submitted process > setupDirs:createDirs (3)
+Feb-13 23:09:34.073 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: setupDirs:createDirs (1); status: COMPLETED; exit: 0; error: -; workDir: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/work/e5/1941975b057b8134637c8a3496e22e]
+Feb-13 23:09:34.074 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Feb-13 23:09:34.074 [Task submitter] INFO  nextflow.Session - [55/585906] Submitted process > setupDirs:createDirs (2)
+Feb-13 23:09:34.078 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Feb-13 23:09:34.079 [Task submitter] INFO  nextflow.Session - [43/15eed6] Submitted process > train:runNanoSimTrain
+Feb-13 23:09:34.087 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: setupDirs:createDirs (3); status: COMPLETED; exit: 0; error: -; workDir: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/work/e6/effa887d2fd868330a2a85402bf59d]
+Feb-13 23:09:34.089 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: setupDirs:createDirs (2); status: COMPLETED; exit: 0; error: -; workDir: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/work/55/58590673692f8116fcc474e1eec805]
+Feb-13 23:11:10.860 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: train:runNanoSimTrain; status: COMPLETED; exit: 1; error: -; workDir: /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/work/43/15eed65fe7b20dd064e62655c80eab]
+Feb-13 23:11:10.863 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=train:runNanoSimTrain; work-dir=/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/work/43/15eed65fe7b20dd064e62655c80eab
+  error [nextflow.exception.ProcessFailedException]: Process `train:runNanoSimTrain` terminated with an error exit status (1)
+Feb-13 23:11:10.873 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'train:runNanoSimTrain'
+
+Caused by:
+  Process `train:runNanoSimTrain` terminated with an error exit status (1)
+
+Command executed:
+
+  /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/src/modules/simulation/NanoSim/src//read_analysis.py metagenome -i /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/covid//covid_ref.fasta -gl /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/src/modules/simulation/config_files//metagenome_covid_human.tsv
+
+Command exit status:
+  1
+
+Command output:
+  
+  Running the code with following parameters:
+  
+  infile /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/covid//covid_ref.fasta
+  genome_list /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/src/modules/simulation/config_files//metagenome_covid_human.tsv
+  g_alnm 
+  prefix training
+  num_threads 1
+  model_fit True
+  chimeric False
+  quantification False
+  2024-02-13 23:09:35: Read pre-process
+  2024-02-13 23:09:35: Processing reference genome
+  2024-02-13 23:09:36: Alignment with minimap2
+  2024-02-13 23:11:08: Processing alignment file: bam
+  2024-02-13 23:11:08: Aligned reads analysis
+  2024-02-13 23:11:08: Computing KDE
+  2024-02-13 23:11:08: Computing KDE for aligned region
+  2024-02-13 23:11:08: Computing KDE for aligned reads
+  2024-02-13 23:11:08: Computing KDE for unaligned length
+  2024-02-13 23:11:08: Computing KDE for ht ratio
+  2024-02-13 23:11:08: Unaligned reads analysis
+  2024-02-13 23:11:08: match and error models
+  2024-02-13 23:11:10: Model fitting
+
+Command error:
+  
+  Running the code with following parameters:
+  
+  infile /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/data/covid//covid_ref.fasta
+  genome_list /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/src/modules/simulation/config_files//metagenome_covid_human.tsv
+  g_alnm 
+  prefix training
+  num_threads 1
+  model_fit True
+  chimeric False
+  quantification False
+  2024-02-13 23:09:35: Read pre-process
+  2024-02-13 23:09:35: Processing reference genome
+  2024-02-13 23:09:36: Alignment with minimap2
+  [M::mm_idx_gen::9.559*1.00] collected minimizers
+  [M::mm_idx_gen::13.741*1.00] sorted minimizers
+  [M::main::13.745*1.00] loaded/built the index for 19829 target sequence(s)
+  [M::mm_mapopt_update::13.747*1.00] mid_occ = 19828
+  [M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 19829
+  [M::mm_idx_stat::13.748*1.00] distinct minimizers: 34213 (39.77% are singletons); average occurrences: 3229.344; average spacing: 5.367; total length: 592946587
+  [M::worker_pipeline::91.620*1.00] mapped 1 sequences
+  [M::main] Version: 2.26-r1175
+  [M::main] CMD: minimap2 --cs -ax map-ont -t 1 reference_metagenome.fasta training_processed.fasta.gz
+  [M::main] Real time: 91.636 sec; CPU: 91.627 sec; Peak RSS: 9.735 GB
+  2024-02-13 23:11:08: Processing alignment file: bam
+  2024-02-13 23:11:08: Aligned reads analysis
+  2024-02-13 23:11:08: Computing KDE
+  2024-02-13 23:11:08: Computing KDE for aligned region
+  2024-02-13 23:11:08: Computing KDE for aligned reads
+  2024-02-13 23:11:08: Computing KDE for unaligned length
+  2024-02-13 23:11:08: Computing KDE for ht ratio
+  2024-02-13 23:11:08: Unaligned reads analysis
+  2024-02-13 23:11:08: match and error models
+  2024-02-13 23:11:10: Model fitting
+  Traceback (most recent call last):
+    File "/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/src/modules/simulation/NanoSim/src//read_analysis.py", line 751, in <module>
+      main()
+    File "/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/src/modules/simulation/NanoSim/src//read_analysis.py", line 746, in main
+      model_fitting.model_fitting(prefix, int(num_threads))
+    File "/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/src/modules/simulation/NanoSim/src/model_fitting.py", line 113, in model_fitting
+      ins_os, ins_cdf = read_histogram(prefix + '_ins.hist', 'indel')
+    File "/home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/src/modules/simulation/NanoSim/src/model_fitting.py", line 41, in read_histogram
+      pmf, bins = np.histogram(os, bins=max(os) - 1, density=True)
+  ValueError: max() arg is an empty sequence
+  cp: '.command.out' and '.command.out' are the same file
+  cp: '.command.err' and '.command.err' are the same file
+
+Work dir:
+  /home/vickylara/Documents/Covid-SpiNGS/covid-spings-pipeline/work/43/15eed65fe7b20dd064e62655c80eab
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+Feb-13 23:11:10.875 [main] DEBUG nextflow.Session - Session await > all processes finished
+Feb-13 23:11:10.876 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `train:runNanoSimTrain` terminated with an error exit status (1)
+Feb-13 23:11:10.890 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Feb-13 23:11:10.891 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Feb-13 23:11:10.895 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=3; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=4ms; failedDuration=1m 37s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Feb-13 23:11:11.095 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Feb-13 23:11:11.127 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

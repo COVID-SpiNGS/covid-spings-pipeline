@@ -1,4 +1,4 @@
-name: nanosim_env
+name: nanosim
 dependencies:
   - bioconda::genometools-genometools
   - bioconda::last
