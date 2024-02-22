@@ -29,20 +29,20 @@ workflow train {
         println "Output: $params.outputDir"  
 }
 
-/**
+
 workflow simulate { 
 
     take: train.out
 
     main:
         runNanoSimSimulation()
-}**/
+}
 
 workflow {
     setupDirs()
     downloadData()
     train()
-    //simulate()
+    simulate()
 }
 
 

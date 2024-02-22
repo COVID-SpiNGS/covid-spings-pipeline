@@ -77,10 +77,12 @@ process runNanoSimTrain {
   //${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -o ${params.nanoSimOutputDir}/pipeline_training -t ${params.threads}
   // ${params.nanoSimScriptsDir}/read_analysis.py genome -i ${params.covidRefDir}/covid_file.fasta -rg ${params.covidRefDir}/covid_ref.fasta -o ${params.nanoSimOutputDir}/pipeline_training -t ${params.threads}
   
+  // ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv -o ${params.nanoSimOutputDir}/pipeline_training -t ${params.threads}
+  
 
   script:
   """
-  ${params.nanoSimScriptsDir}/read_analysis.py metagenome -i ${params.covidRefDir}/covid_ref.fasta -gl ${params.nanoSimConfigDir}/metagenome_covid_human.tsv
+  ${params.nanoSimScriptsDir}/read_analysis.py genome -i ${params.covidRefDir}/covid_file.fasta -rg ${params.covidRefDir}/covid_ref.fasta -o ${params.nanoSimOutputDir}/pipeline_training -t ${params.threads}
   """
 }
 

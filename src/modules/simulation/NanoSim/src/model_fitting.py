@@ -25,6 +25,7 @@ weigeom2 = weigeom2_gen(name="weigeom2", a=1)
 
 
 def read_histogram(f, error):
+
     hist = {}
     with open(f, 'r') as f:
         f.readline()
